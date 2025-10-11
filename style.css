@@ -73,8 +73,7 @@ h3{font-size:22px}
 .hero{
   min-height:62vh;
   display:grid; align-items:center;
-  background: url('grade2_premium.jpg') center/cover no-repeat; /* byt till hero.jpg om du vill */
-  color:#fff; position:relative;
+  background: url('3C546287-56B0-48D0-AEFF-0E79C7F3C0D.jpg') center/cover no-repeat;  color:#fff; position:relative;
 }
 .hero::after{
   content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
