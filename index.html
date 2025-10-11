@@ -1,83 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Somora Frankincense — Somali Maydi (Boswellia Frereana)</title>
-  <meta name="description" content="Somora Frankincense — family-based exporter of Somali Maydi (Boswellia Frereana). Transparent sourcing, video-verified batches, samples from Stockholm." />
+  <meta name="description" content="Family-based exporter of Somali Maydi (Boswellia Frereana). Transparent sourcing, video-verified batches, samples from Stockholm." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/somora_logo.png" />
+  <link rel="icon" href="somora_logo.png" />
 </head>
 <body>
 
-  <!-- Accessible burger menu (CSS-only) -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu" />
-  <label for="nav-toggle" class="burger" aria-hidden="true">
-    <span></span><span></span><span></span>
-  </label>
+  <!-- Drawer toggle (CSS only) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
 
-  <nav class="side-nav">
-    <a href="#products">Our Products</a>
-    <a href="#how">How We Work</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- HERO with your image & text already in the image -->
-  <header class="hero">
-    <div class="hero-image">
-  <img src="3C546287-56B0-48D0-AEFF-0E79C7F3C0D.jpg" alt="Somora Frankincense hero image">
-  <div class="hero-text">
-    <h1>Somora Frankincense</h1>
-    <p>Premium quality frankincense harvested in Somalia</p>
-  </div>
-</div>    <div class="hero-overlay"></div>
-    <!-- no extra text here; your image contains the headline copy -->
+  <!-- Top bar -->
+  <header class="topbar">
+    <label for="nav-toggle" class="hamburger" aria-label="Open menu" title="Menu">
+      <span></span><span></span><span></span>
+    </label>
+    <a class="brand" href="#top">
+      <img src="somora_logo.png" alt="Somora Frankincense logo">
+      <span>Somora Frankincense</span>
+    </a>
+    <nav class="top-links">
+      <a href="#products">Our Products</a>
+      <a href="#how">How We Work</a>
+      <a href="#transparency">Transparency</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
+
+  <!-- Side drawer -->
+  <aside class="drawer">
+    <div class="drawer-inner">
+      <a href="#products" onclick="document.getElementById('nav-toggle').checked=false">Our Products</a>
+      <a href="#how" onclick="document.getElementById('nav-toggle').checked=false">How We Work</a>
+      <a href="#transparency" onclick="document.getElementById('nav-toggle').checked=false">Transparency & Traceability</a>
+      <a href="#request" onclick="document.getElementById('nav-toggle').checked=false">Request Samples</a>
+      <a href="#about" onclick="document.getElementById('nav-toggle').checked=false">About</a>
+      <a href="#contact" onclick="document.getElementById('nav-toggle').checked=false">Contact</a>
+    </div>
+    <label for="nav-toggle" class="backdrop" aria-hidden="true"></label>
+  </aside>
+
+  <!-- Hero -->
+  <section class="hero" id="top" role="banner" aria-label="Somora Frankincense">
+    <!-- TIP: byt till din favoritbild: lägg filen som hero.jpg i repo, eller peka om i CSS. -->
+    <div class="hero-inner container">
+      <h1>Pure Somali Maydi <span>(Boswellia Frereana)</span></h1>
+      <p class="tagline">Family-based exporter · Stockholm, Sweden</p>
+      <div class="cta">
+        <a class="btn primary" href="#request">Request Samples</a>
+        <a class="btn outline" href="#products">View Products</a>
+      </div>
+    </div>
+  </section>
 
   <main>
 
-    <!-- PRODUCTS -->
-    <section id="products" class="section">
-      <div class="container">
-        <h2>Our Products</h2>
-        <div class="divider"></div>
+    <!-- Products -->
+    <section id="products" class="section container">
+      <h2>Our Products</h2>
+      <div class="divider"></div>
 
-        <div class="cards">
-          <article class="card">
-            <h3>Grade 2 – Premium</h3>
-            <div class="img-wrap">
-              <img src="grade2_premium.jpg" alt="Somora Grade 2 Premium Maydi" />
-            </div>
-            <p>Golden, semi-translucent tears with a sweet citrus profile. Ideal for high-end incense and extraction.</p>
-          </article>
+      <div class="cards">
+        <article class="card">
+          <div class="img-wrap">
+            <img src="grade2_premium.jpg" alt="Grade 2 — Premium Maydi frankincense">
+          </div>
+          <h3>Grade 2 — Premium</h3>
+          <p>Golden, semi-translucent tears with a sweet citrus profile. Ideal for high-end incense and extraction.</p>
+        </article>
 
-          <article class="card">
-            <h3>Grade 3 – Standard</h3>
-            <div class="img-wrap">
-              <img src="grade3_standard.jpg" alt="Somora Grade 3 Standard Maydi" />
-            </div>
-            <p>Smaller granules with a balanced, clean aroma. Reliable for incense and essential oil extraction.</p>
-          </article>
+        <article class="card">
+          <div class="img-wrap">
+            <img src="grade3_standard.jpg" alt="Grade 3 — Standard Maydi frankincense">
+          </div>
+          <h3>Grade 3 — Standard</h3>
+          <p>Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.</p>
+        </article>
 
-          <article class="card card-full">
-            <h3>Grade 1 – Maydi Supreme (Coming Soon)</h3>
-            <p>Our highest quality: large golden tears with a bright citrus–honey aroma, hand-picked from the first tapping.</p>
-          </article>
-        </div>
+        <article class="card card-full">
+          <h3>Grade 1 — Maydi Supreme <span class="pill">Coming Soon</span></h3>
+          <p>Our highest quality: large, bright tears with a citrus-honey top note, hand-picked from the first tapping.</p>
+        </article>
       </div>
     </section>
 
-    <!-- HOW WE WORK -->
-    <section id="how" class="section">
+    <!-- How we work -->
+    <section id="how" class="section alt">
       <div class="container">
         <h2>How We Work</h2>
         <div class="divider"></div>
         <ol class="steps">
           <li><b>Inquiry</b> → You request samples (Standard & Premium).</li>
           <li><b>Samples</b> → We ship from Stockholm.</li>
-          <li><b>Golden Sample</b> → You approve reference quality.</li>
+          <li><b>Golden Sample</b> → You approve exact reference quality.</li>
           <li><b>Order & Deposit</b> → PO + 30% deposit (FOB Berbera or CIF on request).</li>
           <li><b>Sorting & Packing</b> → Hand-sorted to match the Golden Sample.</li>
           <li><b>Video Proof</b> → Weighing, labeling, packaging + Batch ID.</li>
@@ -86,37 +107,59 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
+    <!-- Transparency -->
+    <section id="transparency" class="section container">
+      <h2>Transparency & Traceability</h2>
+      <div class="divider"></div>
+      <ul class="bullets">
+        <li>Video proof before export (weighing, labeling, packaging).</li>
+        <li>Batch ID on every shipment for traceability.</li>
+        <li>Family-based connections at Berbera Port for trusted, direct sourcing.</li>
+        <li>Hand-sorted quality; consistent aroma profile.</li>
+      </ul>
+      <p><a class="btn link" href="Somora_Brochure.pdf" target="_blank" rel="noopener">Download Brochure (PDF)</a></p>
+    </section>
+
+    <!-- Request Samples -->
+    <section id="request" class="section alt">
       <div class="container">
-        <h2>About Us</h2>
+        <h2>Request Samples</h2>
         <div class="divider"></div>
-        <p>Somora Frankincense is a family-based exporter of Somali Maydi (Boswellia Frereana). We ensure transparency and consistent quality through direct sourcing, video-verified batches and trusted port contacts in Berbera.</p>
+        <p>Please email us with the following details:</p>
+        <ul class="bullets tight">
+          <li>Company · Contact · Country / City</li>
+          <li>Intended use (incense, extraction, retail) · Preferred grades (Standard, Premium)</li>
+          <li>Quantity interest (monthly/quarterly)</li>
+          <li>Email</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="mailto:somora.frankincense@gmail.com?subject=Somora%20Samples%20Request&body=Hi%20Somora%2C%0D%0A%0D%0AWe%27d%20like%20to%20request%20Maydi%20samples.">Email Request</a>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="divider"></div>
-        <p>Email: <a href="mailto:somora.frankincense@gmail.com">somora.frankincense@gmail.com</a></p>
-        <p><a class="btn" href="Somora_Brochure.pdf" target="_blank" rel="noopener">Download Brochure (PDF)</a></p>
-      </div>
+    <!-- About -->
+    <section id="about" class="section container">
+      <h2>About</h2>
+      <div class="divider"></div>
+      <p>Somora Frankincense is a family-based exporter of authentic Somali Maydi (Boswellia Frereana). We ensure transparency and consistent quality through direct sourcing and a Golden Sample model.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section container">
+      <h2>Contact</h2>
+      <div class="divider"></div>
+      <p><b>Somora Frankincense</b></p>
+      <p>Stockholm, Sweden</p>
+      <p>Email: <a href="mailto:somora.frankincense@gmail.com">somora.frankincense@gmail.com</a></p>
     </section>
 
   </main>
 
-  <!-- FOOTER with logo as “Contact us” -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-logo">
-  <img src="DFB32D9E-63C6-43E7-8E21-F58900940352.PNG" alt="Somora Logo">
-</div>      <p>© 2025 Somora Frankincense — All rights reserved</p>
-      <a href="#contact" class="footer-logo" aria-label="Contact us">
-        <img src="assets/somora_logo.png" alt="Somora Frankincense logo" />
-        <span>Contact us</span>
-      </a>
+    <div class="container">
+      <p>Made with care in Somalia</p>
+      <p>© 2025 Somora Frankincense — All rights reserved</p>
     </div>
   </footer>
 
