@@ -8,8 +8,8 @@
   --max:1200px;
 
   /* images (byt filnamn här om dina skiljer sig) */
-  --hero: url('580E222B-5E9B-4BBA-B540-4D7AEF8BA3D9.PNG');  /* Boswellia (hero) */
-  --land: url('9B638510-4C71-4FA1-8F07-CFA3B0F0B8A4.PNG');  /* Desert landscape */
+  --hero: url('hero.jpg');  /* Boswellia (hero) */
+  --land: url('landscape.jpg');  /* Desert landscape */
 }
 
 *{box-sizing:border-box}
