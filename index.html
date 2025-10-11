@@ -5,43 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Somora Frankincense — Somali Maydi (Boswellia Frereana)</title>
   <meta name="description" content="Family-based exporter of Somali Maydi (Boswellia Frereana). Transparent sourcing, video-verified batches, samples from Sweden." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Preload hero to undvika ‘flash’ -->
+  <link rel="preload" as="image" href="3C546287-56B0-48D0-AEFF-0E79C7F3C0D.jpg">
   <link rel="icon" href="somora_logo.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Drawer toggle (CSS only) -->
+  <!-- Toggle för off-canvas (CSS) -->
   <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
 
   <!-- Top bar -->
-  <header class="topbar">
+  <header class="topbar" role="banner">
     <label for="nav-toggle" class="hamburger" aria-label="Open menu" title="Menu">
       <span></span><span></span><span></span>
     </label>
-    <a class="brand" href="#top">
-      <img src="somora_logo.png" alt="Somora Frankincense logo">
+    <a class="brand" href="#top" aria-label="Somora Frankincense – Home">
+      <img src="somora_logo.png" alt="" role="presentation">
       <span>Somora Frankincense</span>
     </a>
   </header>
 
   <!-- Side drawer -->
-  <aside class="drawer">
+  <aside class="drawer" aria-label="Site">
     <div class="drawer-inner">
-      <a href="#products" onclick="document.getElementById('nav-toggle').checked=false">Our Products</a>
-      <a href="#how" onclick="document.getElementById('nav-toggle').checked=false">How We Work</a>
-      <a href="#transparency" onclick="document.getElementById('nav-toggle').checked=false">Transparency & Traceability</a>
-      <a href="#request" onclick="document.getElementById('nav-toggle').checked=false">Request Samples</a>
-      <a href="#about" onclick="document.getElementById('nav-toggle').checked=false">About</a>
-      <a href="#contact" onclick="document.getElementById('nav-toggle').checked=false">Contact</a>
+      <a href="#products" onclick="closeNav()">Our Products</a>
+      <a href="#how" onclick="closeNav()">How We Work</a>
+      <a href="#transparency" onclick="closeNav()">Transparency & Traceability</a>
+      <a href="#request" onclick="closeNav()">Request Samples</a>
+      <a href="#about" onclick="closeNav()">About</a>
+      <a href="#contact" onclick="closeNav()">Contact</a>
     </div>
     <label for="nav-toggle" class="backdrop" aria-hidden="true"></label>
   </aside>
 
   <!-- Hero -->
-  <section class="hero" id="top" role="banner" aria-label="Somora Frankincense">
+  <section class="hero" id="top" aria-label="Somora Frankincense">
     <div class="hero-inner container">
       <h1>Pure Somali Maydi <span>(Boswellia Frereana)</span></h1>
       <p class="tagline">Family-based exporter · Office in Sweden</p>
@@ -49,7 +53,24 @@
         <a class="btn primary" href="#request">Request Samples</a>
         <a class="btn outline" href="#products">View Products</a>
       </div>
+
+      <!-- trust badges -->
+      <ul class="badges" role="list">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Video-verified batches
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Batch ID & traceability
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Direct family sourcing
+        </li>
+      </ul>
     </div>
+    <a class="scroll-cue" href="#products" aria-label="Scroll to products">↓</a>
   </section>
 
   <main>
@@ -152,7 +173,6 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">
-        <!-- Din lilla logga i botten -->
         <img src="DFB32D9E-63C6-43E7-8E21-F58900940352.PNG" alt="Somora logo">
       </div>
       <p>Made with care in Somalia</p>
@@ -160,5 +180,17 @@
     </div>
   </footer>
 
+  <!-- Liten JS: stäng meny & ge skugga när man scrollar -->
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    function closeNav(){ toggle.checked = false; }
+    const topbar = document.querySelector('.topbar');
+    const onScroll = () => { 
+      if (window.scrollY > 8) topbar.classList.add('scrolled'); 
+      else topbar.classList.remove('scrolled');
+    };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  </script>
 </body>
 </html>
