@@ -120,3 +120,12 @@ h3{font-size:22px}
   .card-full{grid-column:span 1}
   .hero{min-height:56vh}
 }
+.footer-logo{
+  text-align:center;
+  margin:10px 0 14px;
+}
+.footer-logo img{
+  width:90px;
+  height:auto;
+  opacity:0.9;
+}
