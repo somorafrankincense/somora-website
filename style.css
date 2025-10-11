@@ -54,11 +54,75 @@ h3{font-size:22px}
 .top-links a:hover{color:var(--gold)}
 
 /* Hamburger + drawer */
-.hamburger{width:32px; height:28px; display:grid; align-items:center; cursor:pointer; margin-right:6px}
-.hamburger span{display:block; height:2px; background:var(--ink); border-radius:2px}
-.nav-toggle{display:none}
-.drawer{position:fixed; inset:0; pointer-events:none}
-.drawer .drawer-inner{
+/* === HAMBURGER MENU – snyggare & smooth === */
+.hamburger {
+  width:32px;
+  height:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  margin-right:6px;
+  transition:transform .3s ease;
+}
+.hamburger span {
+  display:block;
+  height:3px;
+  background:var(--ink);
+  border-radius:2px;
+  transition:all .3s ease;
+}
+.hamburger:hover {
+  transform:scale(1.05);
+}
+
+/* Animation när meny öppnas */
+.nav-toggle:checked + .topbar .hamburger span:nth-child(1) {
+  transform:rotate(45deg) translate(6px,6px);
+}
+.nav-toggle:checked + .topbar .hamburger span:nth-child(2) {
+  opacity:0;
+}
+.nav-toggle:checked + .topbar .hamburger span:nth-child(3) {
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* Drawer (sidomeny) */
+.drawer {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+.drawer .drawer-inner {
+  position:absolute;
+  left:0;
+  top:0;
+  width:280px;
+  height:100%;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .4s cubic-bezier(.25,.8,.25,1);
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  box-shadow:3px 0 20px rgba(0,0,0,.1);
+}
+.drawer a {
+  text-decoration:none;
+  color:var(--ink);
+  font-weight:600;
+  transition:color .2s ease;
+}
+.drawer a:hover {
+  color:var(--gold);
+}
+.nav-toggle:checked ~ .drawer {
+  pointer-events:auto;
+}
+.nav-toggle:checked ~ .drawer .drawer-inner {
+  transform:translateX(0);
+}
   position:absolute; inset:0 auto 0 0; width:280px; background:#fff; height:100%;
   transform:translateX(-100%); transition:.3s; padding:28px; display:flex; flex-direction:column; gap:18px;
   box-shadow:3px 0 20px rgba(0,0,0,.08);
@@ -71,16 +135,62 @@ h3{font-size:22px}
 
 /* Hero */
 .hero{
-  min-height:62vh;
-  display:grid; align-items:center;
-  background: url('3C546287-56B0-48D0-AEFF-0E79C7F3C0D.jpg') center/cover no-repeat;  color:#fff; position:relative;
+  min-height:68vh;
+  display:grid;
+  align-items:center;
+  background: url('3C546287-56B0-48D0-AEFF-0E79C7F3C0D.jpg') center/cover no-repeat; /* din hero-bild */
+  color:#fff;
+  position:relative;
+  isolation:isolate; /* gör overlay-lager säkert ovanpå bilden */
 }
 .hero::after{
-  content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
+  content:"";
+  position:absolute; inset:0;
+  /* mjuk gradient + diskret radial vinjettering för djup */
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.35) 100%),
+    radial-gradient(1000px 600px at 70% 20%, rgba(0,0,0,.22), transparent 60%);
+  mix-blend-mode:multiply;
 }
-.hero .hero-inner{position:relative; z-index:1; text-shadow:0 2px 14px rgba(0,0,0,.35)}
-.hero .tagline{margin-top:6px; opacity:.95}
-.hero .cta{margin-top:18px; display:flex; gap:12px}
+.hero .hero-inner{
+  position:relative; z-index:1;
+  text-shadow: 0 2px 14px rgba(0,0,0,.45); /* tydligare text mot bilden */
+  padding: 96px 0;
+}
+.hero h1{ color:#fff; letter-spacing:.3px; }
+.hero .tagline{ color:rgba(255,255,255,.92); opacity:1; }
+.hero .cta{ margin-top:18px; display:flex; gap:12px; }
+
+/* === Knappar – lite lyxigare känsla === */
+.btn{
+  display:inline-block; padding:12px 18px; border-radius:999px;
+  text-decoration:none; font-weight:600; border:2px solid var(--gold);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.btn.primary{
+  background:var(--gold); color:#fff;
+  box-shadow: 0 6px 20px rgba(176,138,60,.35);
+}
+.btn.primary:hover{
+  transform:translateY(-1px);
+  box-shadow: 0 10px 24px rgba(176,138,60,.45);
+}
+.btn.outline{
+  color:#fff; border-color:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.08); backdrop-filter: blur(2px);
+}
+.btn.outline:hover{ background:rgba(255,255,255,.14); }
+
+/* === Mobil – lite mörkare overlay för läsbarhet === */
+@media (max-width:640px){
+  .hero{ min-height:58vh; }
+  .hero::after{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.56) 45%, rgba(0,0,0,.48) 100%),
+      radial-gradient(900px 520px at 70% 20%, rgba(0,0,0,.25), transparent 60%);
+  }
+  h1{ font-size:34px; }
+}
 
 /* Cards */
 .cards{
