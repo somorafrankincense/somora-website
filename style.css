@@ -1,9 +1,9 @@
 /* Fonts & base */
 :root{
-  --bg:#f4eadc;        /* beige */
+  --bg:#f4eadc;        /* beige background */
   --ink:#1d1a16;       /* dark text */
-  --gold:#b08a3c;      /* gold accent */
-  --line:#e6dbc9;
+  --gold:#b08a3c;      /* subtle gold */
+  --line:#e6dbc9;      /* hairline border */
   --radius:14px;
   --max:1200px;
 }
@@ -20,7 +20,7 @@ body{
 /* Layout helpers */
 .container{max-width:var(--max); margin:0 auto; padding:0 24px}
 .section{padding:72px 0}
-.section.alt{background:#fff1d9; /* light beige tint */}
+.section.alt{background:#fff1d9}
 h1,h2,h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 12px}
 h1{font-size:46px; letter-spacing:.5px}
 h1 span{font-weight:400; font-size:.6em}
@@ -49,123 +49,59 @@ h3{font-size:22px}
 .topbar .container{display:flex; align-items:center; gap:16px}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-weight:700}
 .brand img{width:28px; height:28px}
-.top-links{margin-left:auto; display:flex; gap:22px}
-/* Diskret skugga när menyn är öppen */
-.nav-toggle:checked + .topbar {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-.top-links a{color:var(--ink); text-decoration:none; font-weight:600}
-.top-links a:hover{color:var(--gold)}
 
-/* Hamburger + drawer */
-/* === HAMBURGER MENU – snyggare & smooth === */
-/* Hamburger + drawer (polerad) */
+/* Diskret skugga på topbar när menyn är öppen */
+.nav-toggle:checked + .topbar{
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+/* Hamburger (snyggare & smooth) */
 .hamburger{
   width:36px; height:28px; display:grid; align-items:center; cursor:pointer;
-  margin-right:6px; padding:3px; border-radius:8px; transition:background .2s ease;
 }
-.hamburger:hover{ background:rgba(0,0,0,.04); }
 .hamburger span{
   display:block; height:2px; background:var(--ink); border-radius:2px;
-  transition:transform .28s ease, opacity .2s ease, width .2s ease;
-  width:24px;
+  transition:transform .25s ease, opacity .25s ease, background .25s ease;
 }
-.hamburger span:nth-child(1){ width:18px }
-.hamburger span:nth-child(2){ width:24px }
-.hamburger span:nth-child(3){ width:16px }
+.nav-toggle{display:none}
+.nav-toggle:checked + .topbar .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle:checked + .topbar .hamburger span:nth-child(2){opacity:0}
+.nav-toggle:checked + .topbar .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-/* Drawer-bas */
-.nav-toggle{ display:none }
-.drawer{ position:fixed; inset:0; pointer-events:none; z-index:60; }
+/* Drawer */
+.drawer{position:fixed; inset:0; pointer-events:none}
 .drawer .drawer-inner{
-  position:absolute; inset:0 auto 0 0; width:290px; max-width:86vw; height:100%;
-  background:#fff; display:flex; flex-direction:column; gap:18px; padding:28px;
-  transform:translateX(-102%); will-change:transform, opacity;
-  box-shadow: 0 12px 40px rgba(0,0,0,.18);
-  transition: transform .36s cubic-bezier(.22,.61,.36,1), opacity .2s ease;
-  opacity:.98;
+  position:absolute; inset:0 auto 0 0; width:280px; background:#fff; height:100%;
+  transform:translateX(-100%); transition:transform .3s ease; padding:28px; display:flex; flex-direction:column; gap:18px;
+  box-shadow:3px 0 20px rgba(0,0,0,.08);
 }
-.drawer a{ text-decoration:none; color:var(--ink); font-weight:600; }
-.drawer a:hover{ color:var(--gold); }
-.drawer .backdrop{
-  position:absolute; inset:0; background:rgba(0,0,0,.22);
-  backdrop-filter: blur(2px);
-  opacity:0; transition:opacity .28s ease;
-}
+.drawer a{text-decoration:none; color:var(--ink); font-weight:600}
+.drawer .backdrop{position:absolute; inset:0; background:rgba(0,0,0,.2); opacity:0; transition:opacity .3s ease}
 
-/* Öppnat läge */
-.nav-toggle:checked ~ .drawer{ pointer-events:auto; }
-.nav-toggle:checked ~ .drawer .drawer-inner{ transform:translateX(0); }
-.nav-toggle:checked ~ .drawer .backdrop{ opacity:1; }
-
-/* Hamburger -> X-animation när öppet */
-.nav-toggle:checked + .topbar .hamburger span:nth-child(1){
-  transform: translateY(7px) rotate(45deg); width:24px;
-}
-.nav-toggle:checked + .topbar .hamburger span:nth-child(2){
-  opacity:0;
-}
-.nav-toggle:checked + .topbar .hamburger span:nth-child(3){
-  transform: translateY(-7px) rotate(-45deg); width:24px;
-}
+.nav-toggle:checked ~ .drawer{pointer-events:auto}
+.nav-toggle:checked ~ .drawer .drawer-inner{transform:translateX(0)}
+.nav-toggle:checked ~ .drawer .backdrop{opacity:1}
 
 /* Hero */
 .hero{
   min-height:68vh;
-  display:grid;
-  align-items:center;
+  display:grid; align-items:center;
   background: url('3C546287-56B0-48D0-AEFF-0E79C7F3C0D.jpg') center/cover no-repeat; /* din hero-bild */
   color:#fff;
   position:relative;
-  isolation:isolate; /* gör overlay-lager säkert ovanpå bilden */
+  isolation:isolate; /* overlay hamnar korrekt ovanpå bilden */
 }
 .hero::after{
   content:"";
   position:absolute; inset:0;
   /* mjuk gradient + diskret radial vinjettering för djup */
   background:
-    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.35) 100%),
-    radial-gradient(1000px 600px at 70% 20%, rgba(0,0,0,.22), transparent 60%);
-  mix-blend-mode:multiply;
+    radial-gradient(60% 60% at 50% 40%, rgba(0,0,0,.00) 0%, rgba(0,0,0,.20) 70%, rgba(0,0,0,.32) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
 }
-.hero .hero-inner{
-  position:relative; z-index:1;
-  text-shadow: 0 2px 14px rgba(0,0,0,.45); /* tydligare text mot bilden */
-  padding: 96px 0;
-}
-.hero h1{ color:#fff; letter-spacing:.3px; }
-.hero .tagline{ color:rgba(255,255,255,.92); opacity:1; }
-.hero .cta{ margin-top:18px; display:flex; gap:12px; }
-
-/* === Knappar – lite lyxigare känsla === */
-.btn{
-  display:inline-block; padding:12px 18px; border-radius:999px;
-  text-decoration:none; font-weight:600; border:2px solid var(--gold);
-  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-}
-.btn.primary{
-  background:var(--gold); color:#fff;
-  box-shadow: 0 6px 20px rgba(176,138,60,.35);
-}
-.btn.primary:hover{
-  transform:translateY(-1px);
-  box-shadow: 0 10px 24px rgba(176,138,60,.45);
-}
-.btn.outline{
-  color:#fff; border-color:rgba(255,255,255,.75);
-  background:rgba(255,255,255,.08); backdrop-filter: blur(2px);
-}
-.btn.outline:hover{ background:rgba(255,255,255,.14); }
-
-/* === Mobil – lite mörkare overlay för läsbarhet === */
-@media (max-width:640px){
-  .hero{ min-height:58vh; }
-  .hero::after{
-    background:
-      linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.56) 45%, rgba(0,0,0,.48) 100%),
-      radial-gradient(900px 520px at 70% 20%, rgba(0,0,0,.25), transparent 60%);
-  }
-  h1{ font-size:34px; }
-}
+.hero .hero-inner{position:relative; z-index:1; text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero .tagline{margin-top:6px; opacity:.95}
+.hero .cta{margin-top:18px; display:flex; gap:12px}
 
 /* Cards */
 .cards{
@@ -192,25 +128,17 @@ h3{font-size:22px}
 
 /* Footer */
 .footer{border-top:1px solid var(--line); padding:38px 0; text-align:center; color:#534d43}
+.footer-logo{margin-bottom:14px}
+.footer-logo img{width:70px; height:auto; opacity:.9}
 
 /* Responsive */
 @media (max-width:1024px){
   .cards{grid-template-columns:1fr 1fr}
   .card-full{grid-column:span 2}
-  .top-links{display:none}
 }
 @media (max-width:640px){
   h1{font-size:36px}
   .cards{grid-template-columns:1fr}
   .card-full{grid-column:span 1}
   .hero{min-height:56vh}
-}
-.footer-logo{
-  text-align:center;
-  margin:10px 0 14px;
-}
-.footer-logo img{
-  width:90px;
-  height:auto;
-  opacity:0.9;
 }
