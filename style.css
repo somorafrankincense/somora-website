@@ -50,88 +50,63 @@ h3{font-size:22px}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-weight:700}
 .brand img{width:28px; height:28px}
 .top-links{margin-left:auto; display:flex; gap:22px}
+/* Diskret skugga när menyn är öppen */
+.nav-toggle:checked + .topbar {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 .top-links a{color:var(--ink); text-decoration:none; font-weight:600}
 .top-links a:hover{color:var(--gold)}
 
 /* Hamburger + drawer */
 /* === HAMBURGER MENU – snyggare & smooth === */
-.hamburger {
-  width:32px;
-  height:28px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  cursor:pointer;
-  margin-right:6px;
-  transition:transform .3s ease;
+/* Hamburger + drawer (polerad) */
+.hamburger{
+  width:36px; height:28px; display:grid; align-items:center; cursor:pointer;
+  margin-right:6px; padding:3px; border-radius:8px; transition:background .2s ease;
 }
-.hamburger span {
-  display:block;
-  height:3px;
-  background:var(--ink);
-  border-radius:2px;
-  transition:all .3s ease;
+.hamburger:hover{ background:rgba(0,0,0,.04); }
+.hamburger span{
+  display:block; height:2px; background:var(--ink); border-radius:2px;
+  transition:transform .28s ease, opacity .2s ease, width .2s ease;
+  width:24px;
 }
-.hamburger:hover {
-  transform:scale(1.05);
+.hamburger span:nth-child(1){ width:18px }
+.hamburger span:nth-child(2){ width:24px }
+.hamburger span:nth-child(3){ width:16px }
+
+/* Drawer-bas */
+.nav-toggle{ display:none }
+.drawer{ position:fixed; inset:0; pointer-events:none; z-index:60; }
+.drawer .drawer-inner{
+  position:absolute; inset:0 auto 0 0; width:290px; max-width:86vw; height:100%;
+  background:#fff; display:flex; flex-direction:column; gap:18px; padding:28px;
+  transform:translateX(-102%); will-change:transform, opacity;
+  box-shadow: 0 12px 40px rgba(0,0,0,.18);
+  transition: transform .36s cubic-bezier(.22,.61,.36,1), opacity .2s ease;
+  opacity:.98;
+}
+.drawer a{ text-decoration:none; color:var(--ink); font-weight:600; }
+.drawer a:hover{ color:var(--gold); }
+.drawer .backdrop{
+  position:absolute; inset:0; background:rgba(0,0,0,.22);
+  backdrop-filter: blur(2px);
+  opacity:0; transition:opacity .28s ease;
 }
 
-/* Animation när meny öppnas */
-.nav-toggle:checked + .topbar .hamburger span:nth-child(1) {
-  transform:rotate(45deg) translate(6px,6px);
+/* Öppnat läge */
+.nav-toggle:checked ~ .drawer{ pointer-events:auto; }
+.nav-toggle:checked ~ .drawer .drawer-inner{ transform:translateX(0); }
+.nav-toggle:checked ~ .drawer .backdrop{ opacity:1; }
+
+/* Hamburger -> X-animation när öppet */
+.nav-toggle:checked + .topbar .hamburger span:nth-child(1){
+  transform: translateY(7px) rotate(45deg); width:24px;
 }
-.nav-toggle:checked + .topbar .hamburger span:nth-child(2) {
+.nav-toggle:checked + .topbar .hamburger span:nth-child(2){
   opacity:0;
 }
-.nav-toggle:checked + .topbar .hamburger span:nth-child(3) {
-  transform:rotate(-45deg) translate(6px,-6px);
+.nav-toggle:checked + .topbar .hamburger span:nth-child(3){
+  transform: translateY(-7px) rotate(-45deg); width:24px;
 }
-
-/* Drawer (sidomeny) */
-.drawer {
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-}
-.drawer .drawer-inner {
-  position:absolute;
-  left:0;
-  top:0;
-  width:280px;
-  height:100%;
-  background:#fff;
-  transform:translateX(-100%);
-  transition:transform .4s cubic-bezier(.25,.8,.25,1);
-  padding:28px;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-  box-shadow:3px 0 20px rgba(0,0,0,.1);
-}
-.drawer a {
-  text-decoration:none;
-  color:var(--ink);
-  font-weight:600;
-  transition:color .2s ease;
-}
-.drawer a:hover {
-  color:var(--gold);
-}
-.nav-toggle:checked ~ .drawer {
-  pointer-events:auto;
-}
-.nav-toggle:checked ~ .drawer .drawer-inner {
-  transform:translateX(0);
-}
-  position:absolute; inset:0 auto 0 0; width:280px; background:#fff; height:100%;
-  transform:translateX(-100%); transition:.3s; padding:28px; display:flex; flex-direction:column; gap:18px;
-  box-shadow:3px 0 20px rgba(0,0,0,.08);
-}
-.drawer a{text-decoration:none; color:var(--ink); font-weight:600}
-.drawer .backdrop{position:absolute; inset:0; background:rgba(0,0,0,.2); opacity:0; transition:.3s}
-.nav-toggle:checked ~ .drawer{pointer-events:auto}
-.nav-toggle:checked ~ .drawer .drawer-inner{transform:translateX(0)}
-.nav-toggle:checked ~ .drawer .backdrop{opacity:1}
 
 /* Hero */
 .hero{
