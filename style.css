@@ -1,129 +1,143 @@
-/* ====== THEME & BASE ====== */
+/* ===== Base ===== */
 :root{
-  --bg:#f4eadc;
-  --ink:#1d1a16;
-  --gold:#b08a3c;
+  --bg:#f4eadc;        /* beige */
+  --ink:#1d1a16;       /* dark text */
+  --gold:#b08a3c;      /* gold accent */
   --line:#e6dbc9;
   --radius:14px;
   --max:1200px;
-
-  /* Hero & Landscape images */
-  --hero:url('hero.jpg');
-  --land:url('landscape.jpg');
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --fade:.35s var(--ease);
 }
 
 *{box-sizing:border-box}
-html,body{margin:0;padding:0}
+html,body{margin:0}
 body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   color:var(--ink);
   background:var(--bg);
   line-height:1.6;
-  scroll-behavior:smooth;
 }
 
-/* ====== GLOBAL ELEMENTS ====== */
-.container{max-width:var(--max);margin:0 auto;padding:0 24px}
-.section{padding:80px 0}
+.container{max-width:var(--max); margin:0 auto; padding:0 24px}
+.section{padding:72px 0}
 .section.alt{background:#fff1d9}
-h1,h2,h3{font-family:"Playfair Display", serif;margin:0 0 12px}
-h1{font-size:46px}
-h1 span{font-weight:400;font-size:.6em}
+h1,h2,h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 12px}
+h1{font-size:46px; letter-spacing:.5px}
+h1 span{font-weight:400; font-size:.6em}
 h2{font-size:32px}
 h3{font-size:22px}
-.divider{width:80px;height:3px;background:var(--gold);border-radius:2px;margin:14px 0 28px}
+.divider{width:80px; height:3px; background:var(--gold); border-radius:2px; margin:14px 0 28px}
 
-/* Buttons */
-.btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-  border:2px solid var(--gold);
-  transition:all .3s ease;
-}
-.btn.primary{background:var(--gold);color:white}
-.btn.primary:hover{background:#a27a27}
-.btn.outline{color:var(--gold);background:transparent}
-.btn.outline:hover{background:rgba(176,138,60,.1)}
-.btn.link{border-color:transparent;padding:0;color:var(--gold);font-weight:700}
+/* ===== Buttons ===== */
+.btn{display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:600; border:2px solid var(--gold); transition:transform .12s var(--ease), box-shadow .2s var(--ease)}
+.btn.primary{background:var(--gold); color:white}
+.btn.outline{color:var(--gold); background:transparent}
+.btn.link{border-color:transparent; padding:0; color:var(--gold); font-weight:700}
+.btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(176,138,60,.18)}
 
-/* ====== NAVBAR ====== */
+/* ===== Topbar ===== */
 .topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(244,234,220,.92);
+  position:sticky; top:0; z-index:50;
+  background:rgba(244,234,220,.9);
   backdrop-filter:saturate(140%) blur(6px);
   border-bottom:1px solid var(--line);
-  display:flex;align-items:center;gap:16px;padding:12px 24px;
 }
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700}
-.brand img{width:28px;height:28px}
-.hamburger{width:32px;height:28px;display:grid;align-items:center;cursor:pointer;margin-right:6px}
-.hamburger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:all .3s ease}
+.topbar .container{display:flex; align-items:center; gap:16px}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-weight:700}
+.brand img{width:28px; height:28px}
+.top-links{margin-left:auto; display:none; gap:22px} /* dold */
+.top-links a{color:var(--ink); text-decoration:none; font-weight:600}
+.top-links a:hover{color:var(--gold)}
+
+/* ===== Hamburger + Drawer (smoother) ===== */
+.hamburger{width:36px; height:28px; display:grid; align-items:center; cursor:pointer; margin-right:6px}
+.hamburger span{display:block; height:2px; background:var(--ink); border-radius:2px; transition:transform var(--fade), opacity var(--fade)}
 .nav-toggle{display:none}
-.drawer{position:fixed;inset:0;pointer-events:none}
+
+.drawer{position:fixed; inset:0; pointer-events:none}
 .drawer .drawer-inner{
-  position:absolute;inset:0 auto 0 0;width:260px;background:#fff;height:100%;
-  transform:translateX(-100%);transition:.35s;padding:28px;display:flex;flex-direction:column;gap:18px;
-  box-shadow:3px 0 20px rgba(0,0,0,.08);
+  position:absolute; inset:0 auto 0 0; width:300px; max-width:82vw;
+  background:#fff; height:100%;
+  transform:translateX(-100%); transition:transform var(--fade), box-shadow var(--fade), backdrop-filter var(--fade);
+  padding:28px; display:flex; flex-direction:column; gap:14px;
+  box-shadow:0 0 0 rgba(0,0,0,0);
 }
-.drawer a{text-decoration:none;color:var(--ink);font-weight:600}
-.drawer a:hover{color:var(--gold)}
-.drawer .backdrop{position:absolute;inset:0;background:rgba(0,0,0,.25);opacity:0;transition:.3s}
+.drawer a{
+  text-decoration:none; color:var(--ink); font-weight:600;
+  transform:translateX(-8px); opacity:0; transition:transform .35s var(--ease), opacity .35s var(--ease);
+  transition-delay: calc(40ms * var(--i, 0));
+}
+.drawer .backdrop{position:absolute; inset:0; background:rgba(0,0,0,.18); opacity:0; transition:opacity var(--fade)}
 .nav-toggle:checked ~ .drawer{pointer-events:auto}
-.nav-toggle:checked ~ .drawer .drawer-inner{transform:translateX(0)}
+.nav-toggle:checked ~ .drawer .drawer-inner{transform:translateX(0); box-shadow:6px 0 28px rgba(0,0,0,.12); backdrop-filter:blur(2px)}
+.nav-toggle:checked ~ .drawer .drawer-inner a{transform:none; opacity:1}
 .nav-toggle:checked ~ .drawer .backdrop{opacity:1}
 
-/* ====== HERO ====== */
+/* Hamburger morph */
+.nav-toggle:checked + .topbar .hamburger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-toggle:checked + .topbar .hamburger span:nth-child(2){opacity:0}
+.nav-toggle:checked + .topbar .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ===== Hero ===== */
+/* HERO ska nu använda öken/landskapsfilen: 9B635B10-... */
 .hero{
-  min-height:70vh;
-  display:grid;align-items:center;
-  background:var(--hero) center/cover no-repeat;
-  color:#fff;position:relative;
+  min-height:64vh;
+  display:grid; align-items:center;
+  background: url('9B635B10-4C71-4FA1-8F07-CFA3BF0F0B84.PNG') center/cover no-repeat;
+  color:#fff; position:relative; isolation:isolate;
 }
 .hero::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.5));
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(60% 60% at 50% 40%, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(0,0,0,.38), rgba(0,0,0,.48));
 }
-.hero .hero-inner{position:relative;z-index:1;text-shadow:0 2px 14px rgba(0,0,0,.4)}
-.hero .tagline{margin-top:6px;opacity:.95}
-.hero .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
-.hero .badges{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
-.hero .badges span{
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.3);
-  border-radius:20px;
-  padding:6px 12px;
-  font-size:14px;
-  backdrop-filter:blur(4px);
+.hero .hero-inner{position:relative; z-index:1; text-shadow:0 2px 14px rgba(0,0,0,.35); padding:48px 0}
+.hero .tagline{margin-top:6px; opacity:.95}
+.hero .cta{margin-top:18px; display:flex; gap:12px}
+
+/* ===== Banner ===== */
+/* BANNER ska nu använda frereana-bilden: 580E222B-... */
+.banner{
+  background: url('580E222B-E5B9-4BAB-B540-4D7AEFBA83D9.PNG') center/cover no-repeat fixed;
+  color:#fff; position:relative; isolation:isolate;
 }
+.banner::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.30)}
+.banner-inner{position:relative; z-index:1; padding:60px 0}
+.banner-kicker{letter-spacing:.12em; text-transform:uppercase; opacity:.9; font-weight:700; margin:0 0 6px}
 
-/* ====== CARDS ====== */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 10px rgba(0,0,0,.05);transition:transform .2s}
-.card:hover{transform:translateY(-4px)}
-
-/* ====== LANDSCAPE ====== */
-.landscape{
-  min-height:48vh;
-  background:var(--land) center/cover no-repeat fixed;
-  position:relative;
-  isolation:isolate;
+/* ===== Cards ===== */
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; padding:18px;
+  display:flex; flex-direction:column; gap:10px; transition:transform .2s var(--ease), box-shadow .25s var(--ease);
 }
-.landscape::after{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(0,0,0,.18),rgba(0,0,0,.35));
-  mix-blend-mode:multiply;
+.card:hover{transform:translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.08)}
+.card .img-wrap{aspect-ratio: 4 / 3; background:#faf7f1; border-radius:10px; overflow:hidden}
+.card img{width:100%; height:100%; object-fit:cover; display:block}
+.card-full{grid-column:span 3; background:transparent; border:none; padding:0}
+
+/* ===== Lists ===== */
+.steps{max-width:850px; font-size:17px}
+.steps li{margin:10px 0}
+.bullets{max-width:850px; padding-left:20px}
+.bullets li{margin:8px 0}
+.bullets.tight li{margin:6px 0}
+.pill{display:inline-block; font-size:.7em; font-weight:700; color:#fff; background:var(--gold); padding:.25em .6em; border-radius:999px; margin-left:.4em}
+
+/* ===== Footer ===== */
+.footer{border-top:1px solid var(--line); padding:38px 0; text-align:center; color:#534d43}
+.footer-logo{margin-bottom:10px}
+
+/* ===== Responsive ===== */
+@media (max-width:1024px){
+  .cards{grid-template-columns:1fr 1fr}
+  .card-full{grid-column:span 2}
 }
-
-/* ====== FOOTER ====== */
-.footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:#534d43}
-.footer-logo{width:70px;height:auto;opacity:.9;margin-bottom:8px}
-
-/* ====== RESPONSIVE ====== */
-@media(max-width:640px){
+@media (max-width:640px){
   h1{font-size:36px}
-  .hero{min-height:60vh}
-  .hero .cta{flex-direction:column;align-items:start}
+  .hero{min-height:56vh}
+  .cards{grid-template-columns:1fr}
+  .card-full{grid-column:span 1}
 }
