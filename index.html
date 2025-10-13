@@ -95,7 +95,7 @@
       <div class="cards">
         <article class="card">
           <div class="img-wrap">
-            <img src="grade2_premium.jpg?v=2" alt="Grade 2 — Premium Maydi frankincense" loading="lazy" width="800" height="600">
+            <img src="grade2_premium.jpg?v=4" alt="Grade 2 — Premium Maydi frankincense" loading="lazy" width="800" height="600">
           </div>
           <h3>Grade 2 — Premium</h3>
           <p>Golden, semi-translucent tears with a sweet citrus profile. Ideal for high-end incense and extraction.</p>
@@ -104,7 +104,7 @@
 
         <article class="card">
           <div class="img-wrap">
-            <img src="grade3_standard.jpg?v=2" alt="Grade 3 — Standard Maydi frankincense" loading="lazy" width="800" height="600">
+            <img src="grade3_standard.jpg?v=4" alt="Grade 3 — Standard Maydi frankincense" loading="lazy" width="800" height="600">
           </div>
           <h3>Grade 3 — Standard</h3>
           <p>Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.</p>
@@ -125,18 +125,19 @@
           <h2>Why Maydi?</h2>
           <div class="divider"></div>
           <p>
-            Boswellia Frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland, where the dry winds from the Gulf of Aden meet the red desert soil. This unique micro-climate cannot be replicated anywhere else in the world, which gives the resin its distinctive aroma and purity.
+            Boswellia Frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland,
+            where the dry winds from the Gulf of Aden meet the red desert soil. This unique micro-climate cannot be
+            replicated anywhere else, giving the resin its distinctive aroma and purity.
           </p>
           <p>
-            Unlike other frankincense species, Maydi produces a sweet citrus-honey scent and contains natural anti-inflammatory compounds valued for centuries in both traditional medicine and modern wellness. Its resin is used to ease stress, improve focus, support skin health, and enhance breathing through natural aromatherapy.
-          </p>
-          <p>
-            At Somora Frankincense, this is more than a product. It represents the essence of a region, harvested by families whose techniques have been refined through generations.
+            Unlike other frankincense species, Maydi has a sweet citrus-honey scent and contains natural anti-inflammatory
+            compounds valued in both traditional medicine and modern wellness. It’s used to ease stress, improve focus,
+            support skin health, and enhance breathing via natural aromatherapy.
           </p>
         </div>
         <div class="col media">
           <figure class="side-figure">
-            <img src="lavender_field.jpg?v=2" alt="Calming botanical scene related to aromatherapy" loading="lazy" width="960" height="1280">
+            <img src="lavender_field.jpg?v=4" alt="Calming botanical scene related to aromatherapy" loading="lazy" width="960" height="1280">
             <figcaption>Calming botanical scene related to aromatherapy</figcaption>
           </figure>
         </div>
@@ -165,7 +166,7 @@
         </div>
         <div class="col media">
           <figure class="side-figure">
-            <img src="sorting_procces.jpg?v=2" alt="Hand sorting frankincense before export" loading="lazy" width="960" height="1280">
+            <img src="sorting_process.jpg?v=4" alt="Hand sorting frankincense before export" loading="lazy" width="960" height="1280">
             <figcaption>Hand sorting frankincense before export</figcaption>
           </figure>
         </div>
@@ -182,7 +183,6 @@
         <li>Family-based connections at Berbera Port for trusted, direct sourcing.</li>
         <li>Hand-sorted quality; consistent aroma profile.</li>
       </ul>
-      <!-- (No PDF link) -->
     </section>
 
     <!-- ===== Request Samples (Netlify form) ===== -->
@@ -246,12 +246,10 @@
           <blockquote>“On-time shipments from Berbera and very honest communication.”</blockquote>
           <figcaption>— Distributor, Middle East</figcaption>
         </figure>
-        <!-- New 1 -->
         <figure class="quote">
           <blockquote>“Sample approval matched the bulk perfectly. Exactly what we needed.”</blockquote>
           <figcaption>— Fragrance house, France</figcaption>
         </figure>
-        <!-- New 2 -->
         <figure class="quote">
           <blockquote>“Reliable sourcing and clear documentation. Smooth process overall.”</blockquote>
           <figcaption>— Wellness brand, UK</figcaption>
@@ -259,16 +257,18 @@
       </div>
     </section>
 
-    <!-- ===== About ===== -->
-    <section id="about" class="section container">
-      <h2>About</h2>
-      <div class="divider"></div>
-      <p>
-        Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia Frereana).
-        We work directly with trusted harvesters and maintain a transparent chain with on-camera verification,
-        Batch IDs and a Golden Sample model to guarantee consistency across shipments.
-        Office in Sweden, export handled in Somalia.
-      </p>
+    <!-- ===== About (light background for contrast) ===== -->
+    <section id="about" class="section alt">
+      <div class="container">
+        <h2>About</h2>
+        <div class="divider"></div>
+        <p>
+          Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia Frereana).
+          We work directly with trusted harvesters and maintain a transparent chain with on-camera verification,
+          Batch IDs and a Golden Sample model to guarantee consistency across shipments.
+          Office in Sweden, export handled in Somalia.
+        </p>
+      </div>
     </section>
 
     <!-- ===== Contact ===== -->
@@ -303,11 +303,11 @@
 
   <!-- ===== JS: reveal, sticky-cta, auto-hide header, mobile menu, quotes, to-top ===== -->
   <script>
-    // Reveal on scroll
+    // Reveal on scroll (OBS: vi inkluderar inte .quotes .quote här!)
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
     }, { threshold: .12 });
-    document.querySelectorAll('h1,h2,.divider,.card,.timeline li,.bullets li,.form,.quotes .quote,.img-wrap,.side-figure').forEach(el=>{
+    document.querySelectorAll('h1,h2,.divider,.card,.timeline li,.bullets li,.form,.img-wrap,.side-figure').forEach(el=>{
       el.classList.add('reveal'); io.observe(el);
     });
 
@@ -344,7 +344,7 @@
     closeBtn.addEventListener('click', ()=>toggleMenu(false));
     mobileMenu.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', ()=>toggleMenu(false)));
 
-    // Quotes carousel
+    // Quotes carousel (visa EN i taget)
     const quotes = Array.from(document.querySelectorAll('.quotes .quote'));
     let qi = 0;
     setInterval(()=>{
