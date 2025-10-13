@@ -1,4 +1,4 @@
-/* ========== Theme & base ========== */
+* ========== Theme & base ========== */
 :root{
   --bg:#f4eadc;        /* beige */
   --ink:#1d1a16;       /* dark text */
@@ -22,7 +22,7 @@ body{
 
 /* Helpers */
 .container{max-width:var(--max); margin:0 auto; padding:0 24px}
-.section{padding:84px 0}
+.section{padding:84px 0; scroll-margin-top:80px}
 .section.alt{background:#fff6e6}
 h1,h2,h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 12px}
 h1{font-size:clamp(32px, 4.5vw, 54px); letter-spacing:.2px}
@@ -43,32 +43,38 @@ h3{font-size:22px}
 }
 .shine:hover::before{ left:120% }
 
-/* ========== Topbar (no logo) ========== */
+/* ========== Topbar (dark + silver text) ========== */
 .topbar{
   position:sticky; top:0; z-index:60;
-  background:rgba(24,22,18,.30);
+  background:rgba(12,12,10,.60);
   backdrop-filter:saturate(140%) blur(8px);
   border-bottom:1px solid rgba(255,255,255,.06);
   transform:translateY(0); transition:transform .28s ease, background .28s ease, box-shadow .28s ease;
 }
-.topbar.scrolled{ background:rgba(24,22,18,.55); box-shadow:0 6px 18px rgba(0,0,0,.12) }
+.topbar.scrolled{ background:rgba(12,12,10,.78); box-shadow:0 6px 18px rgba(0,0,0,.18) }
 .topbar.hide{ transform:translateY(-100%) }
 
-.nav{display:flex; align-items:center; gap:24px; min-height:56px}
+.nav{display:flex; align-items:center; gap:22px; min-height:56px}
+.nav-spacer{flex:1}
 .nav a{
-  margin-left:auto; /* push first to the right edge, next flow leftwards */
-  color:#f1ebdf; text-decoration:none; font-weight:700;
+  text-decoration:none; font-weight:800; letter-spacing:.2px; position:relative;
+  background:linear-gradient(180deg, #f4f4f4, #bfbfbf);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
 }
-.nav a + a{ margin-left:0 } /* only the first gets pushed */
-.nav a:hover{ color:#ffefc7 }
+.nav a:hover{
+  background:linear-gradient(180deg, #fff6d6, #d5b772);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
 /* Mobile menu trigger */
 .hamburger{display:none; width:36px; height:28px; background:none; border:none; margin-left:12px; cursor:pointer}
-.hamburger span{display:block; height:2px; background:#f1ebdf; border-radius:2px; margin:6px 0}
+.hamburger span{display:block; height:2px; background:#e8e8e8; border-radius:2px; margin:6px 0}
 
 /* Full-screen mobile menu */
 .mobile-menu{
-  position:fixed; inset:0; background:rgba(24,22,18,.9);
+  position:fixed; inset:0; background:rgba(24,22,18,.92);
   display:grid; place-items:center; opacity:0; pointer-events:none; transition:.25s;
 }
 .mobile-menu.open{ opacity:1; pointer-events:auto }
@@ -77,18 +83,17 @@ h3{font-size:22px}
 .m-close{position:absolute; top:14px; right:14px; font-size:22px; background:transparent; color:#fff; border:2px solid rgba(255,255,255,.3); border-radius:999px; padding:4px 10px; cursor:pointer}
 .no-scroll{overflow:hidden}
 
-/* ========== Hero ========== */
+/* ========== Hero (dark overlay + readable text) ========== */
 .hero{
   min-height:72vh;
   display:grid; align-items:center;
   background: var(--hero) center/cover no-repeat fixed;
-  color:#e9e2d4; /* lite mörkare varm ton */
+  color:#e8e0cf;
   position:relative; isolation:isolate;
 }
 .hero::before{
-  /* cinematic overlay + vignett */
   content:""; position:absolute; inset:0;
-  background:radial-gradient(100% 80% at 50% 30%, rgba(0,0,0,.55) 0, rgba(0,0,0,.72) 60%);
+  background:radial-gradient(100% 80% at 50% 30%, rgba(0,0,0,.58) 0, rgba(0,0,0,.78) 60%);
 }
 .hero .hero-inner{position:relative; z-index:1; text-shadow:0 2px 14px rgba(0,0,0,.35)}
 .hero .tagline{margin-top:6px; opacity:.95}
@@ -113,12 +118,18 @@ h3{font-size:22px}
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
 .card{
   background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; padding:18px;
-  display:flex; flex-direction:column; gap:10px; box-shadow:0 6px 18px rgba(0,0,0,.03)
+  display:flex; flex-direction:column; gap:10px; box-shadow:0 6px 18px rgba(0,0,0,.03); position:relative;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
+.card:hover{ transform:translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.08) }
 .img-wrap{aspect-ratio: 4 / 3; background:#faf7f1; border-radius:10px; overflow:hidden}
-.img-wrap img{width:100%; height:100%; object-fit:cover; display:block}
+.img-wrap img{width:100%; height:100%; object-fit:cover; display:block; transition: transform .4s ease}
+.card:hover .img-wrap img{ transform: scale(1.04) }
 .card-full{grid-column:span 3; background:transparent; border:none; padding:0}
 .pill{display:inline-block; font-size:.7em; font-weight:800; color:#fff; background:var(--gold); padding:.25em .6em; border-radius:999px; margin-left:.4em}
+.tag{position:absolute; top:14px; left:14px; background:rgba(0,0,0,.6); color:#fff; font-weight:800; font-size:.8rem; padding:6px 10px; border-radius:999px}
+.t-premium{background:linear-gradient(180deg,#2b2b2b,#1b1b1b)}
+.t-standard{background:linear-gradient(180deg,#5b5b5b,#3b3b3b)}
 
 /* ========== Two-column (Why/How) ========== */
 .two-col{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center}
@@ -154,7 +165,7 @@ h3{font-size:22px}
 .bullets{max-width:850px; padding-left:20px}
 .bullets li{margin:8px 0}
 
-/* ========== Form ========== */
+/* ========== Form (Netlify) ========== */
 .form{max-width:900px}
 .form .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
 .form label{display:flex; flex-direction:column; gap:6px; font-weight:700}
@@ -190,6 +201,16 @@ h3{font-size:22px}
 .sticky-cta.show{transform:translateY(0)}
 @media (min-width:900px){ .sticky-cta{display:none} }
 
+/* Back to top */
+.to-top{
+  position:fixed; right:16px; bottom:86px; z-index:70;
+  width:42px; height:42px; border-radius:50%;
+  background:rgba(0,0,0,.5); color:#fff; border:1px solid rgba(255,255,255,.25);
+  display:grid; place-items:center; cursor:pointer; opacity:0; transform:translateY(10px);
+  transition:opacity .25s, transform .25s;
+}
+.to-top.show{opacity:1; transform:none}
+
 /* ========== Reveal animation ========== */
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
 .reveal.in{opacity:1; transform:none}
@@ -209,4 +230,5 @@ h3{font-size:22px}
   .cards{grid-template-columns:1fr}
   .card-full{grid-column:span 1}
   .side-figure img{height:260px}
+  .form .grid{grid-template-columns:1fr}
 }
