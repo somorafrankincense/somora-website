@@ -69,16 +69,127 @@ body.rtl .contact-bar .btn.mini{margin-left:0; margin-right:auto}
 .nav-drawer{display:none}
 body.rtl .nav-links{margin-left:0; margin-right:auto}
 
-/* ===== Hero ===== */
-.hero{position:relative; min-height:72vh; display:grid; align-items:center; isolation:isolate}
-.hero__bg{position:absolute; inset:0; background:url('hero.jpg') center/cover no-repeat fixed; filter:saturate(90%) contrast(96%)}
-.hero::after{content:""; position:absolute; inset:0; background:radial-gradient(85% 85% at 50% 35%, rgba(0,0,0,.30) 0, rgba(0,0,0,.55) 100%)}
-.hero__inner{position:relative; z-index:1; color:#fff; text-shadow:0 2px 14px rgba(0,0,0,.35)}
-.tagline{opacity:.96; margin-top:6px}
-.cta{margin-top:18px; display:flex; gap:12px}
-.badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; padding:0; list-style:none}
-.badges li{background:rgba(0,0,0,.38); border:1px solid rgba(255,255,255,.25); color:#fff; padding:6px 10px; border-radius:999px; font-weight:700; font-size:.85rem}
+/* ===== HERO – ny premiumstil ===== */
+.hero{
+  position:relative;
+  min-height:72vh;               /* mer närvaro över fold */
+  display:grid;
+  align-items:center;
+  isolation:isolate;             /* så overlays hamnar rätt */
+  overflow:hidden;
+  color:#fff;
+}
 
+/* Video täcker hela ytan */
+.hero-video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:saturate(105%) contrast(95%) brightness(95%);
+  z-index:-2;
+}
+
+/* Bildfallback bakom (visas om videon inte laddar) */
+.hero-bg{ position:absolute; inset:0; z-index:-3; }
+.hero-bg img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
+/* Mjuk vignett + dimma för läsbarhet */
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(90% 90% at 50% 40%, rgba(0,0,0,.15), rgba(0,0,0,.55)),
+    linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.45));
+  z-index:-1;
+}
+
+/* Diskret guldig “sheen” som långsamt rör sig */
+.hero::after{
+  content:"";
+  position:absolute; inset:-40% -20%;
+  background: conic-gradient(from 210deg, rgba(255,222,173,0) 0 74%, rgba(255,220,160,.35) 80%, rgba(255,222,173,0) 86%);
+  mix-blend-mode:soft-light;
+  animation: sheen 12s linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+@keyframes sheen{
+  0%   { transform: translateX(-10%) rotate(0deg);   opacity:.25; }
+  50%  { transform: translateX( 10%) rotate(120deg); opacity:.35; }
+  100% { transform: translateX(-10%) rotate(240deg); opacity:.25; }
+}
+
+/* Innehåll */
+.hero-inner{ position:relative; z-index:1; }
+.hero-title{
+  font-family:"Playfair Display", Georgia, serif;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height:1.08;
+  letter-spacing:.2px;
+  margin: 0 0 10px;
+  text-shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+.hero-title span{
+  font-weight:400; font-size:.6em; opacity:.95;
+}
+.hero-tagline{
+  margin:6px 0 18px;
+  font-weight:600;
+  opacity:.95;
+  text-shadow: 0 1px 10px rgba(0,0,0,.35);
+}
+.hero-cta{ display:flex; gap:12px; flex-wrap:wrap; }
+
+/* Badges */
+.hero-badges{
+  display:flex; flex-wrap:wrap; gap:10px;
+  list-style:none; padding:0; margin:16px 0 0;
+}
+.hero-badges li{
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff; padding:6px 10px;
+  border-radius:999px; font-weight:700; font-size:.85rem;
+  backdrop-filter: blur(2px);
+}
+
+/* Scroll-cue (liten rund knapp med pil) */
+.scroll-cue{
+  position:absolute; left:50%; bottom:16px; transform:translateX(-50%);
+  width:38px; height:38px; border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.65);
+  background: rgba(0,0,0,.15);
+  display:grid; place-items:center;
+  backdrop-filter: blur(4px);
+  cursor:pointer;
+  transition: .25s ease;
+}
+.scroll-cue:hover{ transform:translateX(-50%) translateY(-2px); }
+.scroll-cue span{
+  width:8px; height:8px; border-right:2px solid #fff; border-bottom:2px solid #fff;
+  transform: rotate(45deg); margin-top:-2px;
+}
+
+/* Knappar (tar dina befintliga och finslipar lite) */
+.btn{ position:relative; }
+.shine{
+  overflow:hidden;
+}
+.shine::before{
+  content:""; position:absolute; top:0; left:-60%; width:60%; height:100%;
+  background:linear-gradient(120deg, rgba(255,255,255,.25), transparent);
+  transform:skewX(-25deg);
+  transition:left .6s ease;
+}
+.shine:hover::before{ left:120%; }
+
+/* Responsivt */
+@media (max-width: 900px){
+  .hero{ min-height:64vh; }
+  .hero-video{ display:none; }            /* låt mobil använda bilden för bättre prestanda */
+}
 /* ===== Cards ===== */
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
 .card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; padding:18px; display:flex; flex-direction:column; gap:10px; box-shadow:0 6px 18px rgba(0,0,0,.03)}
