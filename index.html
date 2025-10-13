@@ -4,26 +4,97 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Somora Frankincense — Somali Maydi (Boswellia Frereana)</title>
-  <meta name="description" content="Family-based exporter of Somali Maydi (Boswellia Frereana). Golden Sample model, video-verified batches, export via Berbera Port. Office in Sweden." />
+  <title>Somora Frankincense — Somali Maydi (Boswellia frereana) Exporter</title>
+  <meta name="description" content="Premium Somali Maydi (Boswellia frereana) — bulk frankincense with Golden Sample, Batch ID and video-verified sourcing. Office in Sweden, export from Somalia via Berbera Port.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Somora Frankincense — Somali Maydi (Boswellia Frereana)">
+  <!-- Canonical + hreflang (BYT till din domän om du har en annan än thesomora.com) -->
+  <link rel="canonical" href="https://thesomora.com/">
+  <link rel="alternate" hreflang="en" href="https://thesomora.com/">
+  <link rel="alternate" hreflang="ar" href="https://thesomora.com/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://thesomora.com/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Somora Frankincense — Somali Maydi (Boswellia frereana) Exporter">
   <meta property="og:description" content="Transparent sourcing with video proof, Batch ID and Golden Sample. Office in Sweden, export from Somalia.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Somora Frankincense — Somali Maydi (Boswellia frereana)">
+  <meta name="twitter:description" content="Premium Somali frankincense. Video-verified batches, Batch ID and Golden Sample.">
+  <meta name="twitter:image" content="hero.jpg">
 
-  <!-- Fonts: EN + AR -->
+  <!-- Preload hero för snabb first paint -->
+  <link rel="preload" as="image" href="hero.jpg">
+
+  <!-- Fonts (EN + AR) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="somora_logo.png" />
+
+  <!-- Organization -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Somora Frankincense",
+    "url":"https://thesomora.com/",
+    "logo":"https://thesomora.com/somora_logo.png",
+    "description":"Exporter of Somali Maydi (Boswellia frereana) with video-verified batches and Batch ID.",
+    "areaServed":"Worldwide",
+    "foundingLocation":"Somalia",
+    "knowsAbout":["Frankincense","Boswellia frereana","Maydi","Export","FOB Berbera"]
+  }
+  </script>
+
+  <!-- FAQ schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What are your shipping terms?","acceptedAnswer":{"@type":"Answer","text":"FOB Berbera by default; CIF available on request."}},
+      {"@type":"Question","name":"Minimum order?","acceptedAnswer":{"@type":"Answer","text":"Depends on grade and season; contact us for current availability."}},
+      {"@type":"Question","name":"How do you ensure quality?","acceptedAnswer":{"@type":"Answer","text":"Golden Sample approval, hand-sorting to match, plus video proof and Batch ID before export."}}
+    ]
+  }
+  </script>
+
+  <!-- Product schema: Grade 2 + Grade 3 -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Somali Maydi Frankincense — Grade 2 (Premium)",
+    "brand":{"@type":"Brand","name":"Somora Frankincense"},
+    "category":"Frankincense Resin",
+    "material":"Boswellia frereana",
+    "description":"Golden, semi-translucent tears with a sweet citrus profile. Ideal for premium incense and extraction.",
+    "image":["https://thesomora.com/grade2_premium.jpg"],
+    "url":"https://thesomora.com/#products",
+    "manufacturer":{"@type":"Organization","name":"Somora Frankincense"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Somali Maydi Frankincense — Grade 3 (Standard)",
+    "brand":{"@type":"Brand","name":"Somora Frankincense"},
+    "category":"Frankincense Resin",
+    "material":"Boswellia frereana",
+    "description":"Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.",
+    "image":["https://thesomora.com/grade3_standard.jpg"],
+    "url":"https://thesomora.com/#products",
+    "manufacturer":{"@type":"Organization","name":"Somora Frankincense"}
+  }
+  </script>
 </head>
 <body id="top">
 
-  <!-- ===== Topbar (translucent, silver links, hairline) + brand + LANG ===== -->
+  <!-- ===== Topbar: mörk, genomskinlig, silverlänkar + språk ===== -->
   <header id="topbar" class="topbar">
     <nav class="nav container" aria-label="Primary">
       <a class="brand" href="#top" aria-label="Somora Frankincense">Somora Frankincense</a>
@@ -43,7 +114,7 @@
     </nav>
   </header>
 
-  <!-- ===== HERO (bild endast, större) ===== -->
+  <!-- ===== HERO: stor bild, ingen text ===== -->
   <section class="hero" role="banner" aria-label="Somora Frankincense">
     <a class="scroll-cue" href="#products" aria-label="Scroll to products"></a>
   </section>
@@ -58,7 +129,10 @@
       <div class="cards">
         <article class="card">
           <div class="img-wrap">
-            <img src="grade2_premium.jpg?v=9" alt="Grade 2 — Premium Maydi frankincense" loading="lazy" width="800" height="600">
+            <picture>
+              <source type="image/webp" srcset="grade2_premium.webp">
+              <img src="grade2_premium.jpg" alt="Somali Maydi frankincense (Boswellia frereana) — premium golden tears" loading="lazy" width="800" height="600">
+            </picture>
           </div>
           <h3 data-i18n="products.g2.title">Grade 2 — Premium</h3>
           <p data-i18n="products.g2.desc">Golden, semi-translucent tears with a sweet citrus profile. Ideal for high-end incense and extraction.</p>
@@ -67,8 +141,10 @@
 
         <article class="card">
           <div class="img-wrap">
-            <!-- fallback om filnamnet har långt streck (–) istället för underscore -->
-            <img src="grade3_standard.jpg?v=9" onerror="this.onerror=null;this.src='grade3–standard.jpg?v=9'" alt="Grade 3 — Standard Maydi frankincense" loading="lazy" width="800" height="600">
+            <picture>
+              <source type="image/webp" srcset="grade3_standard.webp">
+              <img src="grade3_standard.jpg" onerror="this.onerror=null;this.src='grade3–standard.jpg'" alt="Somali Maydi frankincense (Boswellia frereana) — standard grade granules" loading="lazy" width="800" height="600">
+            </picture>
           </div>
           <h3 data-i18n="products.g3.title">Grade 3 — Standard</h3>
           <p data-i18n="products.g3.desc">Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.</p>
@@ -82,14 +158,14 @@
       </div>
     </section>
 
-    <!-- ===== Why Maydi (utan bildtext under bilden) ===== -->
+    <!-- ===== Why Maydi? ===== -->
     <section id="why" class="section alt">
       <div class="container two-col">
         <div class="col text">
           <h2 data-i18n="why.title">Why Maydi?</h2>
           <div class="divider"></div>
           <p data-i18n="why.p1">
-            Boswellia Frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland,
+            Boswellia frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland,
             where the dry winds from the Gulf of Aden meet the red desert soil. This unique micro-climate cannot be
             replicated anywhere else, giving the resin its distinctive aroma and purity.
           </p>
@@ -101,16 +177,27 @@
         </div>
         <div class="col media">
           <figure class="side-figure">
-            <img src="lavender_field.jpg?v=9" alt="Calming botanical scene related to aromatherapy" loading="lazy" width="960" height="1280">
+            <img src="lavender_field.jpg" alt="Calming botanical scene related to aromatherapy and frankincense" loading="lazy" width="960" height="1280">
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ===== Parallax landscape (syns större) ===== -->
+    <!-- ===== Extra on-page relevans (SEO) ===== -->
+    <section class="section container">
+      <h2>What is Frankincense (Olibanum)?</h2>
+      <div class="divider"></div>
+      <p>
+        Frankincense (olibanum) is an aromatic resin obtained from trees of the genus <b>Boswellia</b>.
+        <b>Maydi (Boswellia frereana)</b> from Somaliland is prized for its naturally sweet, citrus profile and clean burn.
+        It’s used in incense, perfumery and wellness—often preferred when a bright, honey-citrus note is desired.
+      </p>
+    </section>
+
+    <!-- ===== Parallax landscape (större synlighet) ===== -->
     <section class="parallax" aria-label="Somali landscape"></section>
 
-    <!-- ===== How we work (utan bildtext) ===== -->
+    <!-- ===== How we work ===== -->
     <section id="how" class="section container">
       <h2 data-i18n="how.title">How We Work</h2>
       <div class="divider"></div>
@@ -129,7 +216,7 @@
         </div>
         <div class="col media">
           <figure class="side-figure">
-            <img src="sorting_process.jpg?v=9" alt="Hand sorting frankincense before export" loading="lazy" width="960" height="1280">
+            <img src="sorting_process.jpg" alt="Hand sorting Somali Maydi frankincense before export" loading="lazy" width="960" height="1280">
           </figure>
         </div>
       </div>
@@ -147,7 +234,7 @@
       </ul>
     </section>
 
-    <!-- ===== Request Samples (Netlify form + JS fallback) ===== -->
+    <!-- ===== Request Samples (Netlify form + fallback) ===== -->
     <section id="request" class="section alt">
       <div class="container">
         <h2 data-i18n="form.title">Request Samples</h2>
@@ -189,7 +276,7 @@
       </div>
     </section>
 
-    <!-- ===== What buyers say (MENA-fokus) ===== -->
+    <!-- ===== What buyers say (MENA-fokus, vit panel, tydlig skiftning) ===== -->
     <section id="testimonials" class="section container">
       <h2 data-i18n="test.title">What buyers say</h2>
       <div class="divider"></div>
@@ -227,7 +314,7 @@
         <h2 data-i18n="about.title">About</h2>
         <div class="divider"></div>
         <p data-i18n="about.p">
-          Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia Frereana).
+          Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia frereana).
           We work directly with trusted harvesters and maintain a transparent chain with on-camera verification,
           Batch IDs and a Golden Sample model to guarantee consistency across shipments.
           Office in Sweden, export handled in Somalia.
@@ -265,7 +352,7 @@
   <!-- Back to top -->
   <button id="toTop" class="to-top" aria-label="Back to top">↑</button>
 
-  <!-- ===== JS (reveal, sticky-cta, auto-hide header, quotes + dots, to-top, i18n, Netlify-fallback) ===== -->
+  <!-- ===== JS (reveal, sticky-cta, header, quotes, to-top, i18n, Netlify fallback) ===== -->
   <script>
     // Reveal on scroll
     const io = new IntersectionObserver((entries)=>{
@@ -294,7 +381,7 @@
     };
     document.addEventListener('scroll', onScrollHeader, {passive:true}); onScrollHeader();
 
-    // Quotes carousel with dots
+    // Testimonials carousel with dots
     const quotes = Array.from(document.querySelectorAll('.quotes .quote'));
     const dotsWrap = document.querySelector('.dots');
     let qi = 0;
@@ -323,7 +410,7 @@
     toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
     document.addEventListener('scroll', toTopVis, {passive:true}); toTopVis();
 
-    // ===== Simple i18n (EN / AR) =====
+    // Simple i18n (EN/AR)
     const i18n = {
       en: {
         'nav.products':'Our Products','nav.why':'Why Maydi?','nav.how':'How We Work','nav.transparency':'Transparency','nav.about':'About','nav.contact':'Contact',
@@ -332,7 +419,7 @@
         'products.g3.title':'Grade 3 — Standard','products.g3.desc':'Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.',
         'products.g1.title':'Grade 1 — Maydi Supreme','products.g1.desc':'Our highest quality: large, bright tears with a citrus-honey top note, hand-picked from the first tapping.',
         'coming':'Coming Soon','tag.premium':'Premium','tag.standard':'Standard',
-        'why.title':'Why Maydi?','why.p1':'Boswellia Frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland, where the dry winds from the Gulf of Aden meet the red desert soil. This unique micro-climate cannot be replicated anywhere else, giving the resin its distinctive aroma and purity.',
+        'why.title':'Why Maydi?','why.p1':'Boswellia frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland, where the dry winds from the Gulf of Aden meet the red desert soil. This unique micro-climate cannot be replicated anywhere else, giving the resin its distinctive aroma and purity.',
         'why.p2':'Unlike other frankincense species, Maydi has a sweet citrus-honey scent and contains natural anti-inflammatory compounds valued in both traditional medicine and modern wellness. It’s used to ease stress, improve focus, support skin health, and enhance breathing via natural aromatherapy.',
         'how.title':'How We Work',
         'how.s1':'<b>Inquiry</b> — You request samples (Standard & Premium).',
@@ -357,7 +444,7 @@
         'test.q3':'“Clear videos and Batch IDs made approval fast. Reliable communication.”','test.a3':'— Importer, Muscat (Oman)',
         'test.q4':'“On-time shipments and honest sourcing. Good partner for premium incense.”','test.a4':'— Incense brand, Doha (Qatar)',
         'test.q5':'“Quality held steady across repeat orders. Great follow-up.”','test.a5':'— Aroma wholesaler, Kuwait City',
-        'about.title':'About','about.p':'Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia Frereana). We work directly with trusted harvesters and maintain a transparent chain with on-camera verification, Batch IDs and a Golden Sample model to guarantee consistency across shipments. Office in Sweden, export handled in Somalia.',
+        'about.title':'About','about.p':'Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia frereana). We work directly with trusted harvesters and maintain a transparent chain with on-camera verification, Batch IDs and a Golden Sample model to guarantee consistency across shipments. Office in Sweden, export handled in Somalia.',
         'contact.title':'Contact','contact.name':'Somora Frankincense','contact.where':'Office in Sweden • Export from Somalia','contact.emailLabel':'Email:',
         'footer.made':'Made with care in Somalia · Office in Sweden',
         'btn.samples':'Request Samples'
@@ -365,13 +452,13 @@
       ar: {
         'nav.products':'منتجاتنا','nav.why':'لماذا الميدي؟','nav.how':'كيف نعمل','nav.transparency':'الشفافية','nav.about':'من نحن','nav.contact':'تواصل معنا',
         'products.title':'منتجاتنا',
-        'products.g2.title':'الدرجة 2 — بريميوم','products.g2.desc':'حبيبات ذهبية شبه شفافة بعبير حمضي-حلو. مثالي للبخور الفاخر والاستخلاص.',
+        'products.g2.title':'الدرجة 2 — بريميوم','products.g2.desc':'حبيبات ذهبية شبه شفافة بعبير حمضي حلو. مثالي للبخور الفاخر والاستخلاص.',
         'products.g3.title':'الدرجة 3 — ستاندرد','products.g3.desc':'حبيبات أصغر بعطر نظيف ومتوازن. موثوقة للبخور واستخلاص الزيوت.',
         'products.g1.title':'الدرجة 1 — ميدي سوبريم','products.g1.desc':'أعلى جودة: حبيبات كبيرة براقة بلمسة عسلية حمضية، تُجمع من أول نزّ.',
         'coming':'قريبًا','tag.premium':'بريميوم','tag.standard':'ستاندرد',
         'why.title':'لماذا الميدي؟',
-        'why.p1':'تنمو شجرة اللبان (Boswellia Frereana) المعروفة محليًا بالميدي فقط في جبال شمال أرض الصومال، حيث تلتقي رياح خليج عدن الجافة بالتربة الحمراء الصحراوية. هذا المناخ الدقيق لا يمكن تكراره في أي مكان آخر، ما يمنح الراتنج عطره وتميزه.',
-        'why.p2':'على عكس الأنواع الأخرى من اللبان، يتميز الميدي بعبير حلو حمضي ويحتوي مركبات مضادة للالتهاب طبيعية، قيّمة في الطب التقليدي والعافية الحديثة. يُستخدم لتخفيف التوتر وتحسين التركيز ودعم صحة البشرة وتعزيز التنفس عبر العلاج العطري الطبيعي.',
+        'why.p1':'تنمو شجرة اللبان (Boswellia frereana) المعروفة محليًا بالميدي فقط في جبال شمال أرض الصومال، حيث تلتقي رياح خليج عدن الجافة بالتربة الصحراوية الحمراء. هذا المناخ الدقيق لا يمكن تكراره في مكان آخر، ما يمنح الراتنج عطره وتميزه.',
+        'why.p2':'على عكس الأنواع الأخرى من اللبان، يتميز الميدي بعبير حلو حمضي ويحتوي مركبات مضادة للالتهاب طبيعية، قيّمة في الطب التقليدي والعافية الحديثة. يُستخدم لتخفيف التوتر وتحسين التركيز ودعم صحة البشرة وتعزيز التنفس عبر العلاج العطري.',
         'how.title':'كيف نعمل',
         'how.s1':'<b>طلب</b> — تطلب عينات (ستاندرد وبريميوم).',
         'how.s2':'<b>عينات</b> — نرسل العينات للموافقة.',
@@ -391,11 +478,11 @@
         'form.qty':'الكمية المتوقعة (شهريًا/ربعيًا)','form.msg':'رسالة','form.submit':'إرسال الطلب','form.note':'نرد عادة خلال 24–48 ساعة.',
         'test.title':'ماذا يقول المشترون',
         'test.q1':'"جودة ميدي ثابتة وتخليص جمركي سلس عبر بربرة. موصى به."','test.a1':'— موزّع، دبي (الإمارات)',
-        'test.q2':'"العينة الذهبية تطابقت تمامًا مع الشحنة. عبير حمضي-حلو يحبه عملاؤنا."','test.a2':'— دار عطور، الرياض (السعودية)',
+        'test.q2':'"العينة الذهبية تطابقت تمامًا مع الشحنة. عبير حمضي حلو يحبه عملاؤنا."','test.a2':'— دار عطور، الرياض (السعودية)',
         'test.q3':'"فيديو واضح وأرقام دفعات سهّلت الموافقة. تواصل موثوق."','test.a3':'— مستورد، مسقط (عُمان)',
         'test.q4':'"شحنات في الوقت وتوريد صادق. شريك جيد للبخور الفاخر."','test.a4':'— علامة بخور، الدوحة (قطر)',
         'test.q5':'"جودة ثابتة في الطلبيات المتكررة. متابعة ممتازة."','test.a5':'— تاجر عطور بالجملة، مدينة الكويت',
-        'about.title':'من نحن','about.p':'سومورا للّبان مصدّر عائلي مكرّس للميدي الصومالي الأصيل (Boswellia Frereana). نعمل مباشرة مع جامعين موثوقين ونحافظ على سلسلة شفافة بتوثيق مرئي، وأرقام دفعات، ونموذج العينة الذهبية لضمان الاتساق بين الشحنات. مكتبنا في السويد، والتصدير من الصومال.',
+        'about.title':'من نحن','about.p':'سومورا للّبان مصدّر عائلي للميدي الصومالي الأصيل (Boswellia frereana). نعمل مباشرة مع جامعين موثوقين ونحافظ على سلسلة شفافة بتوثيق مرئي، وأرقام دفعات، ونموذج العينة الذهبية لضمان الاتساق بين الشحنات. مكتبنا في السويد، والتصدير من الصومال.',
         'contact.title':'تواصل معنا','contact.name':'سومورا للّبان','contact.where':'مكتب في السويد • التصدير من الصومال','contact.emailLabel':'البريد: ',
         'footer.made':'صُنع بعناية في الصومال · مكتب في السويد',
         'btn.samples':'اطلب عينات'
@@ -420,18 +507,15 @@
     });
     setLang('en'); // default
 
-    // ===== Netlify fallback submit (om "Send request" inte postar normalt) =====
+    // Netlify fallback (om POST inte fångas av Netlify)
     const form = document.querySelector('form[name="sample-request"]');
     if (form){
       form.addEventListener('submit', async (e)=>{
-        // Om Netlify redan hanterar, fortsätt normalt på static hosting.
         try{
-          // Testa om vi är på Netlify (har serverless handling)
-          if (window.location.hostname.endsWith('netlify.app')) return; 
+          if (window.location.hostname.endsWith('netlify.app')) return;
         }catch(_){}
         e.preventDefault();
         const data = new FormData(form);
-        // Viktigt: form-name måste vara med i body
         if (!data.get('form-name')) data.set('form-name','sample-request');
         const encoded = new URLSearchParams(data).toString();
         const res = await fetch('/', {
