@@ -1,4 +1,4 @@
-/* ========== Theme & base ========== */
+/* ===== Theme & base ===== */
 :root{
   --bg:#f4eadc;
   --ink:#1d1a16;
@@ -7,8 +7,8 @@
   --radius:14px;
   --max:1200px;
 
-  --hero: url('hero.jpg?v=10');
-  --land: url('landscape.jpg?v=10');
+  --hero: url('hero.jpg?v=11');
+  --land: url('landscape.jpg?v=11');
 }
 
 *{box-sizing:border-box}
@@ -29,7 +29,7 @@ h2{font-family:"Playfair Display", Georgia, serif; margin:0 0 12px; font-size:cl
 h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 10px; font-size:22px}
 .divider{width:84px; height:3px; background:var(--gold); border-radius:2px; margin:14px 0 28px}
 
-/* Buttons + subtle shine */
+/* Buttons + shine */
 .btn{display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:800; border:2px solid var(--gold); position:relative}
 .btn.primary{background:var(--gold); color:#fff}
 .btn.outline{color:var(--gold); background:transparent}
@@ -40,7 +40,7 @@ h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 10px; font-size:22
 }
 .shine:hover::before{ left:120% }
 
-/* ========== Topbar: mörk, lite genomskinlig, silverlänk, fin linje ========== */
+/* ===== Topbar (mörk, transparent, silvertext, hairline) ===== */
 .topbar{
   position:sticky; top:0; z-index:60;
   background:rgba(0,0,0,.50);
@@ -78,10 +78,9 @@ h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 10px; font-size:22
 .lang{border:1px solid rgba(255,255,255,.25); background:transparent; color:#eaeaea; padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:900}
 .lang.on{background:#d9c37f; color:#111; border-color:#d9c37f}
 
-/* ========== Hero: större, utan text ==========
-   Gör den lite mörk men inte så att den ser grå ut; ingen vit “glipa” under. */
+/* ===== HERO: stor bild, ingen text ===== */
 .hero{
-  min-height:105vh; /* större än skärmen för att dölja allt under på desktop */
+  min-height:105vh; /* större än viewport => döljer vit glipa */
   background: var(--hero) center/cover no-repeat fixed;
   position:relative; isolation:isolate;
 }
@@ -91,7 +90,7 @@ h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 10px; font-size:22
     radial-gradient(90% 70% at 50% 30%, rgba(0,0,0,.12) 0, rgba(0,0,0,.28) 60%),
     linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.20));
 }
-/* Scroll cue (liten pil) */
+/* Scroll cue */
 .scroll-cue{
   position:absolute; left:50%; bottom:24px; width:26px; height:26px;
   border:2px solid #ffefc7; border-left:0; border-top:0;
@@ -104,7 +103,7 @@ h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 10px; font-size:22
   50%{ transform:translate(-50%,6px) rotate(45deg) }
 }
 
-/* ========== Cards ========== */
+/* ===== Cards ===== */
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
 .card{
   background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; padding:18px;
@@ -121,14 +120,14 @@ h3{font-family:"Playfair Display", Georgia, serif; margin:0 0 10px; font-size:22
 .t-premium{background:linear-gradient(180deg,#2b2b2b,#1b1b1b)}
 .t-standard{background:linear-gradient(180deg,#5b5b5b,#3b3b3b)}
 
-/* ========== Two-column (Why/How) ========== */
+/* ===== Two-column (Why/How) ===== */
 .two-col{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center}
 .side-figure{
   margin:0; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px;
   box-shadow:0 6px 18px rgba(0,0,0,.06); text-align:center
 }
 .side-figure img{width:100%; height:320px; object-fit:cover; border-radius:8px; display:block}
-.side-figure figcaption{display:none} /* inga bildtexter */
+.side-figure figcaption{display:none}
 
 /* RTL tweaks */
 html[dir="rtl"] .two-col{ grid-template-columns:.8fr 1.2fr }
@@ -137,7 +136,7 @@ html[dir="rtl"] .tag{ left:auto; right:14px }
 html[dir="rtl"] .timeline li{ padding-left:0; padding-right:36px }
 html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
 
-/* ========== Parallax (större synlighet) ========== */
+/* ===== Parallax ===== */
 .parallax{
   height:82vh;
   background: var(--land) center/cover no-repeat fixed;
@@ -149,7 +148,7 @@ html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
   opacity:.45;
 }
 
-/* ========== Timeline ========== */
+/* ===== Timeline ===== */
 .timeline{counter-reset:step; list-style:none; padding-left:0; display:grid; gap:10px}
 .timeline li{position:relative; padding-left:36px}
 .timeline li::before{
@@ -158,11 +157,11 @@ html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
   background:var(--gold); color:#fff; display:grid; place-items:center; font-size:.85rem; font-weight:800;
 }
 
-/* ========== Lists ========== */
+/* ===== Lists ===== */
 .bullets{max-width:850px; padding-left:20px}
 .bullets li{margin:8px 0}
 
-/* ========== Form (Netlify) ========== */
+/* ===== Form (Netlify) ===== */
 .form{max-width:900px}
 .form .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
 .form label{display:flex; flex-direction:column; gap:6px; font-weight:700}
@@ -174,7 +173,7 @@ html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
 .form-note{opacity:.8; margin-top:10px}
 .form button[type="submit"]{cursor:pointer}
 
-/* ========== Testimonials (vit panel + fade + dots) ========== */
+/* ===== Testimonials (vit panel + fade + dots) ===== */
 .quotes-panel{
   background:#fff; border:1px solid var(--line); border-radius:14px;
   padding:24px; box-shadow:0 10px 24px rgba(0,0,0,.06);
@@ -185,7 +184,7 @@ html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
   transition:opacity .5s ease, transform .5s ease;
 }
 .quote.active{opacity:1; transform:none}
-.quote blockquote{margin:0 0 6px 0; font-size:clamp(16px,2.2vw,20px); font-style:italic}
+.quote blockquote{margin:0 0 6px 0; font-size:clamp(16px,2.2vw,20px); font-style:italic; background:#fff; padding:4px 0}
 .quote figcaption{opacity:.75; font-weight:700}
 .dots{display:flex; gap:8px; justify-content:center; margin-top:14px}
 .dot{
@@ -194,7 +193,7 @@ html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
 }
 .dot.active{background:#c9b07a; transform:scale(1.1)}
 
-/* ========== Footer ========== */
+/* ===== Footer ===== */
 .footer{border-top:1px solid var(--line); padding:44px 0; text-align:center; color:#534d43}
 .footer-logo{margin-bottom:10px}
 .footer-logo img{width:64px; height:auto; opacity:.9; filter:drop-shadow(0 1px 0 rgba(0,0,0,.04))}
@@ -202,7 +201,7 @@ html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
 .footer-nav a{text-decoration:none; color:var(--ink); font-weight:800}
 .footer-nav a:hover{color:var(--gold)}
 
-/* ========== Sticky CTA (mobile) ========== */
+/* ===== Sticky CTA (mobile) ===== */
 .sticky-cta{
   position:fixed; left:16px; right:16px; bottom:16px; z-index:70;
   background:var(--gold); color:#fff; text-align:center; padding:12px 16px; border-radius:999px;
@@ -222,11 +221,11 @@ html[dir="rtl"] .timeline li::before{ left:auto; right:0 }
 }
 .to-top.show{opacity:1; transform:none}
 
-/* ========== Reveal animation ========== */
+/* ===== Reveal animation ===== */
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
 .reveal.in{opacity:1; transform:none}
 
-/* ========== Responsive tweaks ========== */
+/* ===== Responsive ===== */
 @media (max-width:1024px){
   .cards{grid-template-columns:1fr 1fr}
   .card-full{grid-column:span 2}
