@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="htmlEl" lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,72 +15,44 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- EN + AR fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="somora_logo.png" />
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Somora Frankincense",
-    "logo":"somora_logo.png",
-    "description":"Exporter of Somali Maydi (Boswellia Frereana) with video-verified batches and Batch ID.",
-    "areaServed":"Worldwide",
-    "foundingLocation":"Somalia",
-    "knowsAbout":["Frankincense","Boswellia Frereana","Maydi","Export","FOB Berbera"]
-  }
-  </script>
 </head>
 <body id="top">
 
-  <!-- ===== Topbar (dark + silver links) ===== -->
+  <!-- ===== Topbar (black + silver links) + LANG SWITCH ===== -->
   <header id="topbar" class="topbar">
     <nav class="nav container" aria-label="Primary">
       <div class="nav-spacer"></div>
-      <a href="#products">Our Products</a>
-      <a href="#why">Why Maydi?</a>
-      <a href="#how">How We Work</a>
-      <a href="#transparency">Transparency</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
 
-      <!-- Mobile hamburger -->
-      <button id="navToggle" class="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <!-- links with data-i18n keys -->
+      <a href="#products" data-i18n="nav.products">Our Products</a>
+      <a href="#why" data-i18n="nav.why">Why Maydi?</a>
+      <a href="#how" data-i18n="nav.how">How We Work</a>
+      <a href="#transparency" data-i18n="nav.transparency">Transparency</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+
+      <!-- language switch -->
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang on" data-lang="en">EN</button>
+        <button class="lang" data-lang="ar">AR</button>
+      </div>
     </nav>
   </header>
-
-  <!-- Mobile full-screen menu -->
-  <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="mobile-inner">
-      <a href="#products" class="m-link">Our Products</a>
-      <a href="#why" class="m-link">Why Maydi?</a>
-      <a href="#how" class="m-link">How We Work</a>
-      <a href="#transparency" class="m-link">Transparency</a>
-      <a href="#about" class="m-link">About</a>
-      <a href="#contact" class="m-link">Contact</a>
-    </div>
-    <button class="m-close" aria-label="Close menu">✕</button>
-  </div>
 
   <!-- ===== HERO ===== -->
   <section class="hero" role="banner" aria-label="Somora Frankincense">
     <div class="hero-inner container">
-      <h1>Pure Somali Maydi <span>(Boswellia Frereana)</span></h1>
-      <p class="tagline">Family-based exporter · Office in Sweden · Export from Somalia (FOB Berbera)</p>
+      <h1 data-i18n="hero.title">Pure Somali Maydi</h1>
+      <p class="tagline" data-i18n="hero.tagline">Family-based exporter · Office in Sweden · Export from Somalia</p>
       <div class="cta">
-        <a class="btn primary shine" href="#request">Request Samples</a>
-        <a class="btn outline" href="#products">View Products</a>
+        <a class="btn primary shine" href="#request" data-i18n="btn.samples">Request Samples</a>
+        <a class="btn outline" href="#products" data-i18n="btn.products">View Products</a>
       </div>
-      <ul class="badges" aria-label="Quality badges">
-        <li>Video-verified</li>
-        <li>Batch ID</li>
-        <li>Golden Sample</li>
-        <li>Direct Sourcing</li>
-      </ul>
     </div>
     <a class="scroll-cue" href="#products" aria-label="Scroll to products"></a>
   </section>
@@ -89,31 +61,31 @@
 
     <!-- ===== Products ===== -->
     <section id="products" class="section container">
-      <h2>Our Products</h2>
+      <h2 data-i18n="products.title">Our Products</h2>
       <div class="divider"></div>
 
       <div class="cards">
         <article class="card">
           <div class="img-wrap">
-            <img src="grade2_premium.jpg?v=4" alt="Grade 2 — Premium Maydi frankincense" loading="lazy" width="800" height="600">
+            <img src="grade2_premium.jpg?v=6" alt="Grade 2 — Premium Maydi frankincense" loading="lazy" width="800" height="600">
           </div>
-          <h3>Grade 2 — Premium</h3>
-          <p>Golden, semi-translucent tears with a sweet citrus profile. Ideal for high-end incense and extraction.</p>
-          <div class="tag t-premium">Premium</div>
+          <h3 data-i18n="products.g2.title">Grade 2 — Premium</h3>
+          <p data-i18n="products.g2.desc">Golden, semi-translucent tears with a sweet citrus profile. Ideal for high-end incense and extraction.</p>
+          <div class="tag t-premium" data-i18n="tag.premium">Premium</div>
         </article>
 
         <article class="card">
           <div class="img-wrap">
-            <img src="grade3_standard.jpg?v=4" alt="Grade 3 — Standard Maydi frankincense" loading="lazy" width="800" height="600">
+            <img src="grade3_standard.jpg?v=6" alt="Grade 3 — Standard Maydi frankincense" loading="lazy" width="800" height="600">
           </div>
-          <h3>Grade 3 — Standard</h3>
-          <p>Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.</p>
-          <div class="tag t-standard">Standard</div>
+          <h3 data-i18n="products.g3.title">Grade 3 — Standard</h3>
+          <p data-i18n="products.g3.desc">Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.</p>
+          <div class="tag t-standard" data-i18n="tag.standard">Standard</div>
         </article>
 
         <article class="card card-full">
-          <h3>Grade 1 — Maydi Supreme <span class="pill">Coming Soon</span></h3>
-          <p>Our highest quality: large, bright tears with a citrus-honey top note, hand-picked from the first tapping.</p>
+          <h3><span data-i18n="products.g1.title">Grade 1 — Maydi Supreme</span> <span class="pill" data-i18n="coming">Coming Soon</span></h3>
+          <p data-i18n="products.g1.desc">Our highest quality: large, bright tears with a citrus-honey top note, hand-picked from the first tapping.</p>
         </article>
       </div>
     </section>
@@ -122,14 +94,14 @@
     <section id="why" class="section alt">
       <div class="container two-col">
         <div class="col text">
-          <h2>Why Maydi?</h2>
+          <h2 data-i18n="why.title">Why Maydi?</h2>
           <div class="divider"></div>
-          <p>
+          <p data-i18n="why.p1">
             Boswellia Frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland,
             where the dry winds from the Gulf of Aden meet the red desert soil. This unique micro-climate cannot be
             replicated anywhere else, giving the resin its distinctive aroma and purity.
           </p>
-          <p>
+          <p data-i18n="why.p2">
             Unlike other frankincense species, Maydi has a sweet citrus-honey scent and contains natural anti-inflammatory
             compounds valued in both traditional medicine and modern wellness. It’s used to ease stress, improve focus,
             support skin health, and enhance breathing via natural aromatherapy.
@@ -137,8 +109,8 @@
         </div>
         <div class="col media">
           <figure class="side-figure">
-            <img src="lavender_field.jpg?v=4" alt="Calming botanical scene related to aromatherapy" loading="lazy" width="960" height="1280">
-            <figcaption>Calming botanical scene related to aromatherapy</figcaption>
+            <img src="lavender_field.jpg?v=6" alt="Calming botanical scene related to aromatherapy" loading="lazy" width="960" height="1280">
+            <figcaption data-i18n="why.fig">Calming botanical scene related to aromatherapy</figcaption>
           </figure>
         </div>
       </div>
@@ -149,25 +121,25 @@
 
     <!-- ===== How we work ===== -->
     <section id="how" class="section container">
-      <h2>How We Work</h2>
+      <h2 data-i18n="how.title">How We Work</h2>
       <div class="divider"></div>
 
       <div class="two-col">
         <div class="col">
           <ol class="timeline">
-            <li><b>Inquiry</b> — You request samples (Standard & Premium).</li>
-            <li><b>Samples</b> — We provide samples for approval.</li>
-            <li><b>Golden Sample</b> — You approve the exact reference quality.</li>
-            <li><b>PO & Deposit</b> — 30% deposit; terms FOB Berbera or CIF on request.</li>
-            <li><b>Sorting & Packing</b> — Hand-sorted to match the Golden Sample.</li>
-            <li><b>Video Proof</b> — Weighing, labeling, packaging + Batch ID before export.</li>
-            <li><b>Export</b> — Shipment from Somalia via Berbera Port.</li>
+            <li data-i18n="how.s1"><b>Inquiry</b> — You request samples (Standard & Premium).</li>
+            <li data-i18n="how.s2"><b>Samples</b> — We provide samples for approval.</li>
+            <li data-i18n="how.s3"><b>Golden Sample</b> — You approve the exact reference quality.</li>
+            <li data-i18n="how.s4"><b>PO & Deposit</b> — 30% deposit; terms FOB Berbera or CIF on request.</li>
+            <li data-i18n="how.s5"><b>Sorting & Packing</b> — Hand-sorted to match the Golden Sample.</li>
+            <li data-i18n="how.s6"><b>Video Proof</b> — Weighing, labeling, packaging + Batch ID before export.</li>
+            <li data-i18n="how.s7"><b>Export</b> — Shipment from Somalia via Berbera Port.</li>
           </ol>
         </div>
         <div class="col media">
           <figure class="side-figure">
-            <img src="sorting_process.jpg?v=4" alt="Hand sorting frankincense before export" loading="lazy" width="960" height="1280">
-            <figcaption>Hand sorting frankincense before export</figcaption>
+            <img src="sorting_process.jpg?v=6" alt="Hand sorting frankincense before export" loading="lazy" width="960" height="1280">
+            <figcaption data-i18n="how.fig">Hand sorting frankincense before export</figcaption>
           </figure>
         </div>
       </div>
@@ -175,20 +147,20 @@
 
     <!-- ===== Transparency ===== -->
     <section id="transparency" class="section container">
-      <h2>Transparency & Traceability</h2>
+      <h2 data-i18n="trans.title">Transparency & Traceability</h2>
       <div class="divider"></div>
       <ul class="bullets">
-        <li>Video proof before export (weighing, labeling, packaging).</li>
-        <li>Batch ID on every shipment for full traceability.</li>
-        <li>Family-based connections at Berbera Port for trusted, direct sourcing.</li>
-        <li>Hand-sorted quality; consistent aroma profile.</li>
+        <li data-i18n="trans.b1">Video proof before export (weighing, labeling, packaging).</li>
+        <li data-i18n="trans.b2">Batch ID on every shipment for full traceability.</li>
+        <li data-i18n="trans.b3">Family-based connections at Berbera Port for trusted, direct sourcing.</li>
+        <li data-i18n="trans.b4">Hand-sorted quality; consistent aroma profile.</li>
       </ul>
     </section>
 
     <!-- ===== Request Samples (Netlify form) ===== -->
     <section id="request" class="section alt">
       <div class="container">
-        <h2>Request Samples</h2>
+        <h2 data-i18n="form.title">Request Samples</h2>
         <div class="divider"></div>
 
         <form name="sample-request" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" class="form">
@@ -198,71 +170,74 @@
           </p>
 
           <div class="grid">
-            <label>Company<input name="Company" required></label>
-            <label>Contact person<input name="Contact" required></label>
-            <label>Email<input name="Email" type="email" required></label>
-            <label>Country / City<input name="Location" required></label>
-            <label>Intended use
+            <label data-i18n="form.company">Company<input name="Company" required></label>
+            <label data-i18n="form.contact">Contact person<input name="Contact" required></label>
+            <label data-i18n="form.email">Email<input name="Email" type="email" required></label>
+            <label data-i18n="form.location">Country / City<input name="Location" required></label>
+            <label data-i18n="form.use">Intended use
               <select name="Use" required>
-                <option value="Incense">Incense</option>
-                <option value="Extraction">Extraction</option>
-                <option value="Retail">Retail</option>
-                <option value="Other">Other</option>
+                <option value="Incense" data-i18n="form.use.incense">Incense</option>
+                <option value="Extraction" data-i18n="form.use.extraction">Extraction</option>
+                <option value="Retail" data-i18n="form.use.retail">Retail</option>
+                <option value="Other" data-i18n="form.use.other">Other</option>
               </select>
             </label>
-            <label>Preferred grades
+            <label data-i18n="form.grades">Preferred grades
               <select name="Grades" required>
-                <option value="Standard">Standard</option>
-                <option value="Premium">Premium</option>
-                <option value="Both">Both</option>
+                <option value="Standard" data-i18n="form.grades.standard">Standard</option>
+                <option value="Premium" data-i18n="form.grades.premium">Premium</option>
+                <option value="Both" data-i18n="form.grades.both">Both</option>
               </select>
             </label>
-            <label>Quantity interest (monthly/quarterly)
+            <label data-i18n="form.qty">Quantity interest (monthly/quarterly)
               <input name="Quantity">
             </label>
-            <label>Message<textarea name="Message" rows="4"></textarea></label>
+            <label data-i18n="form.msg">Message<textarea name="Message" rows="4"></textarea></label>
           </div>
-          <button class="btn primary shine" type="submit">Send request</button>
-          <p class="form-note">We usually reply within 24–48 hours.</p>
+          <button class="btn primary shine" type="submit" data-i18n="form.submit">Send request</button>
+          <p class="form-note" data-i18n="form.note">We usually reply within 24–48 hours.</p>
         </form>
       </div>
     </section>
 
     <!-- ===== What buyers say ===== -->
     <section id="testimonials" class="section container">
-      <h2>What buyers say</h2>
+      <h2 data-i18n="test.title">What buyers say</h2>
       <div class="divider"></div>
 
-      <div class="quotes" aria-live="polite">
-        <figure class="quote active">
-          <blockquote>“Clean, sweet Maydi with excellent consistency batch to batch.”</blockquote>
-          <figcaption>— Importer, EU</figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote>“Their video proof and Batch IDs made our QA confident from day one.”</blockquote>
-          <figcaption>— Aroma brand, USA</figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote>“On-time shipments from Berbera and very honest communication.”</blockquote>
-          <figcaption>— Distributor, Middle East</figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote>“Sample approval matched the bulk perfectly. Exactly what we needed.”</blockquote>
-          <figcaption>— Fragrance house, France</figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote>“Reliable sourcing and clear documentation. Smooth process overall.”</blockquote>
-          <figcaption>— Wellness brand, UK</figcaption>
-        </figure>
+      <div class="quotes-panel">
+        <div class="quotes" aria-live="polite">
+          <figure class="quote active">
+            <blockquote data-i18n="test.q1">“Clean, sweet Maydi with excellent consistency batch to batch.”</blockquote>
+            <figcaption data-i18n="test.a1">— Importer, EU</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote data-i18n="test.q2">“Their video proof and Batch IDs made our QA confident from day one.”</blockquote>
+            <figcaption data-i18n="test.a2">— Aroma brand, USA</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote data-i18n="test.q3">“On-time shipments from Berbera and very honest communication.”</blockquote>
+            <figcaption data-i18n="test.a3">— Distributor, Middle East</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote data-i18n="test.q4">“Sample approval matched the bulk perfectly. Exactly what we needed.”</blockquote>
+            <figcaption data-i18n="test.a4">— Fragrance house, France</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote data-i18n="test.q5">“Reliable sourcing and clear documentation. Smooth process overall.”</blockquote>
+            <figcaption data-i18n="test.a5">— Wellness brand, UK</figcaption>
+          </figure>
+        </div>
+        <div class="dots" role="tablist" aria-label="Testimonials navigation"></div>
       </div>
     </section>
 
-    <!-- ===== About (light background for contrast) ===== -->
+    <!-- ===== About ===== -->
     <section id="about" class="section alt">
       <div class="container">
-        <h2>About</h2>
+        <h2 data-i18n="about.title">About</h2>
         <div class="divider"></div>
-        <p>
+        <p data-i18n="about.p">
           Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia Frereana).
           We work directly with trusted harvesters and maintain a transparent chain with on-camera verification,
           Batch IDs and a Golden Sample model to guarantee consistency across shipments.
@@ -273,11 +248,11 @@
 
     <!-- ===== Contact ===== -->
     <section id="contact" class="section container">
-      <h2>Contact</h2>
+      <h2 data-i18n="contact.title">Contact</h2>
       <div class="divider"></div>
-      <p><b>Somora Frankincense</b></p>
-      <p>Office in Sweden • Export from Somalia</p>
-      <p>Email: <a href="mailto:somora.frankincense@gmail.com">somora.frankincense@gmail.com</a></p>
+      <p><b data-i18n="contact.name">Somora Frankincense</b></p>
+      <p data-i18n="contact.where">Office in Sweden • Export from Somalia</p>
+      <p><span data-i18n="contact.emailLabel">Email:</span> <a href="mailto:somora.frankincense@gmail.com">somora.frankincense@gmail.com</a></p>
     </section>
 
   </main>
@@ -288,22 +263,22 @@
         <img src="somora_logo.png" alt="Somora logo" width="64" height="64" loading="lazy" />
       </div>
       <nav class="footer-nav">
-        <a href="#about">About</a> · <a href="#request">Request Samples</a>
+        <a href="#about" data-i18n="nav.about">About</a> · <a href="#request" data-i18n="btn.samples">Request Samples</a>
       </nav>
-      <p>Made with care in Somalia · Office in Sweden</p>
+      <p data-i18n="footer.made">Made with care in Somalia · Office in Sweden</p>
       <p>© 2025 Somora Frankincense — All rights reserved</p>
     </div>
   </footer>
 
   <!-- Sticky CTA (mobile) -->
-  <a href="#request" class="sticky-cta" aria-label="Request Samples">Request Samples</a>
+  <a href="#request" class="sticky-cta" aria-label="Request Samples" data-i18n="btn.samples">Request Samples</a>
 
   <!-- Back to top -->
   <button id="toTop" class="to-top" aria-label="Back to top">↑</button>
 
-  <!-- ===== JS: reveal, sticky-cta, auto-hide header, mobile menu, quotes, to-top ===== -->
+  <!-- ===== JS (reveal, sticky-cta, auto-hide header, quotes + dots, to-top, i18n) ===== -->
   <script>
-    // Reveal on scroll (OBS: vi inkluderar inte .quotes .quote här!)
+    // Reveal on scroll
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
     }, { threshold: .12 });
@@ -330,34 +305,146 @@
     };
     document.addEventListener('scroll', onScrollHeader, {passive:true}); onScrollHeader();
 
-    // Mobile menu
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeBtn = mobileMenu.querySelector('.m-close');
-    const toggleMenu = (open) => {
-      mobileMenu.setAttribute('aria-hidden', !open);
-      navToggle.setAttribute('aria-expanded', open);
-      document.body.classList.toggle('no-scroll', open);
-      mobileMenu.classList.toggle('open', open);
-    };
-    navToggle.addEventListener('click', ()=>toggleMenu(true));
-    closeBtn.addEventListener('click', ()=>toggleMenu(false));
-    mobileMenu.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', ()=>toggleMenu(false)));
-
-    // Quotes carousel (visa EN i taget)
+    // Quotes carousel with dots
     const quotes = Array.from(document.querySelectorAll('.quotes .quote'));
+    const dotsWrap = document.querySelector('.dots');
     let qi = 0;
-    setInterval(()=>{
+    const renderDots = () => {
+      dotsWrap.innerHTML = '';
+      quotes.forEach((_, idx) => {
+        const b = document.createElement('button');
+        b.className = 'dot' + (idx===qi ? ' active' : '');
+        b.setAttribute('aria-label', 'Go to testimonial ' + (idx+1));
+        b.addEventListener('click', () => { goTo(idx); });
+        dotsWrap.appendChild(b);
+      });
+    };
+    const goTo = (idx) => {
       quotes[qi].classList.remove('active');
-      qi = (qi+1)%quotes.length;
+      qi = idx;
       quotes[qi].classList.add('active');
-    }, 5000);
+      renderDots();
+    };
+    setInterval(()=>{ goTo((qi+1)%quotes.length); }, 5000);
+    renderDots();
 
     // Back to top
     const toTop = document.getElementById('toTop');
     const toTopVis = () => { toTop.classList.toggle('show', window.scrollY > 600); };
     toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
     document.addEventListener('scroll', toTopVis, {passive:true}); toTopVis();
+
+    // ===== Simple i18n (EN / AR) =====
+    const i18n = {
+      en: {
+        'nav.products':'Our Products','nav.why':'Why Maydi?','nav.how':'How We Work','nav.transparency':'Transparency','nav.about':'About','nav.contact':'Contact',
+        'hero.title':'Pure Somali Maydi','hero.tagline':'Family-based exporter · Office in Sweden · Export from Somalia',
+        'btn.samples':'Request Samples','btn.products':'View Products',
+        'products.title':'Our Products',
+        'products.g2.title':'Grade 2 — Premium','products.g2.desc':'Golden, semi-translucent tears with a sweet citrus profile. Ideal for high-end incense and extraction.',
+        'products.g3.title':'Grade 3 — Standard','products.g3.desc':'Smaller granules with a clean, balanced aroma. Reliable for incense and essential oil extraction.',
+        'products.g1.title':'Grade 1 — Maydi Supreme','products.g1.desc':'Our highest quality: large, bright tears with a citrus-honey top note, hand-picked from the first tapping.',
+        'coming':'Coming Soon','tag.premium':'Premium','tag.standard':'Standard',
+        'why.title':'Why Maydi?','why.p1':'Boswellia Frereana, known locally as Maydi, grows only in the rugged mountains of northern Somaliland, where the dry winds from the Gulf of Aden meet the red desert soil. This unique micro-climate cannot be replicated anywhere else, giving the resin its distinctive aroma and purity.',
+        'why.p2':'Unlike other frankincense species, Maydi has a sweet citrus-honey scent and contains natural anti-inflammatory compounds valued in both traditional medicine and modern wellness. It’s used to ease stress, improve focus, support skin health, and enhance breathing via natural aromatherapy.',
+        'why.fig':'Calming botanical scene related to aromatherapy',
+        'how.title':'How We Work',
+        'how.s1':'<b>Inquiry</b> — You request samples (Standard & Premium).',
+        'how.s2':'<b>Samples</b> — We provide samples for approval.',
+        'how.s3':'<b>Golden Sample</b> — You approve the exact reference quality.',
+        'how.s4':'<b>PO & Deposit</b> — 30% deposit; terms FOB Berbera or CIF on request.',
+        'how.s5':'<b>Sorting & Packing</b> — Hand-sorted to match the Golden Sample.',
+        'how.s6':'<b>Video Proof</b> — Weighing, labeling, packaging + Batch ID before export.',
+        'how.s7':'<b>Export</b> — Shipment from Somalia via Berbera Port.',
+        'how.fig':'Hand sorting frankincense before export',
+        'trans.title':'Transparency & Traceability',
+        'trans.b1':'Video proof before export (weighing, labeling, packaging).',
+        'trans.b2':'Batch ID on every shipment for full traceability.',
+        'trans.b3':'Family-based connections at Berbera Port for trusted, direct sourcing.',
+        'trans.b4':'Hand-sorted quality; consistent aroma profile.',
+        'form.title':'Request Samples','form.company':'Company','form.contact':'Contact person','form.email':'Email','form.location':'Country / City',
+        'form.use':'Intended use','form.use.incense':'Incense','form.use.extraction':'Extraction','form.use.retail':'Retail','form.use.other':'Other',
+        'form.grades':'Preferred grades','form.grades.standard':'Standard','form.grades.premium':'Premium','form.grades.both':'Both',
+        'form.qty':'Quantity interest (monthly/quarterly)','form.msg':'Message','form.submit':'Send request','form.note':'We usually reply within 24–48 hours.',
+        'test.title':'What buyers say',
+        'test.q1':'“Clean, sweet Maydi with excellent consistency batch to batch.”','test.a1':'— Importer, EU',
+        'test.q2':'“Their video proof and Batch IDs made our QA confident from day one.”','test.a2':'— Aroma brand, USA',
+        'test.q3':'“On-time shipments from Berbera and very honest communication.”','test.a3':'— Distributor, Middle East',
+        'test.q4':'“Sample approval matched the bulk perfectly. Exactly what we needed.”','test.a4':'— Fragrance house, France',
+        'test.q5':'“Reliable sourcing and clear documentation. Smooth process overall.”','test.a5':'— Wellness brand, UK',
+        'about.title':'About','about.p':'Somora Frankincense is a family-based exporter dedicated to authentic Somali Maydi (Boswellia Frereana). We work directly with trusted harvesters and maintain a transparent chain with on-camera verification, Batch IDs and a Golden Sample model to guarantee consistency across shipments. Office in Sweden, export handled in Somalia.',
+        'contact.title':'Contact','contact.name':'Somora Frankincense','contact.where':'Office in Sweden • Export from Somalia','contact.emailLabel':'Email:',
+        'footer.made':'Made with care in Somalia · Office in Sweden'
+      },
+      ar: {
+        'nav.products':'منتجاتنا','nav.why':'لماذا الميدي؟','nav.how':'كيف نعمل','nav.transparency':'الشفافية','nav.about':'من نحن','nav.contact':'تواصل معنا',
+        'hero.title':'ميدي صومالي نقي','hero.tagline':'مصدّر عائلي · مكتب في السويد · التصدير من الصومال',
+        'btn.samples':'طلب عينات','btn.products':'عرض المنتجات',
+        'products.title':'منتجاتنا',
+        'products.g2.title':'الدرجة 2 — بريميوم','products.g2.desc':'حبيبات ذهبية شبه شفافة بعبير حمضي-حلو. مثالي للبخور الفاخر والاستخلاص.',
+        'products.g3.title':'الدرجة 3 — ستاندرد','products.g3.desc':'حبيبات أصغر بعطر نظيف ومتوازن. موثوقة للبخور واستخلاص الزيوت.',
+        'products.g1.title':'الدرجة 1 — ميدي سوبريم','products.g1.desc':'أعلى جودة: حبيبات كبيرة براقة بلمسة عسلية حمضية، تُجمع من أول نزّ.',
+        'coming':'قريبًا','tag.premium':'بريميوم','tag.standard':'ستاندرد',
+        'why.title':'لماذا الميدي؟',
+        'why.p1':'تنمو شجرة اللبان (Boswellia Frereana) المعروفة محليًا بالميدي فقط في جبال شمال أرض الصومال، حيث تلتقي رياح خليج عدن الجافة بالتربة الحمراء الصحراوية. هذا المناخ الدقيق لا يمكن تكراره في أي مكان آخر، ما يمنح الراتنج عطره وتميزه.',
+        'why.p2':'على عكس الأنواع الأخرى من اللبان، يتميز الميدي بعبير حلو حمضي (عسلي-حمضي) ويحتوي مركبات مضادة للالتهاب طبيعية، قيّمة في الطب التقليدي والعافية الحديثة. يُستخدم لتخفيف التوتر وتحسين التركيز ودعم صحة البشرة وتعزيز التنفس عبر العلاج العطري الطبيعي.',
+        'why.fig':'مشهد نباتي مهدئ يرتبط بالعلاج العطري',
+        'how.title':'كيف نعمل',
+        'how.s1':'<b>طلب</b> — تطلب عينات (ستاندرد وبريميوم).',
+        'how.s2':'<b>عينات</b> — نرسل العينات للموافقة.',
+        'how.s3':'<b>العينة الذهبية</b> — تعتمد الجودة المرجعية الدقيقة.',
+        'how.s4':'<b>أمر شراء ودفعة</b> — دفعة 30٪؛ شروط FOB بربرة أو CIF حسب الطلب.',
+        'how.s5':'<b>الفرز والتعبئة</b> — يدويًا لتطابق العينة الذهبية.',
+        'how.s6':'<b>فيديو توثيق</b> — وزن، وضع بطاقات، تعبئة + رقم دفعة قبل التصدير.',
+        'how.s7':'<b>التصدير</b> — الشحن من الصومال عبر ميناء بربرة.',
+        'how.fig':'فرز اللبان يدويًا قبل التصدير',
+        'trans.title':'الشفافية والتتبّع',
+        'trans.b1':'فيديو توثيق قبل التصدير (وزن، بطاقات، تعبئة).',
+        'trans.b2':'رقم دفعة على كل شحنة لتتبّع كامل.',
+        'trans.b3':'روابط عائلية موثوقة في ميناء بربرة لتوريد مباشر.',
+        'trans.b4':'جودة مفرزة يدويًا وعبير متسق.',
+        'form.title':'طلب عينات','form.company':'الشركة','form.contact':'شخص التواصل','form.email':'البريد الإلكتروني','form.location':'الدولة / المدينة',
+        'form.use':'الغرض','form.use.incense':'بخور','form.use.extraction':'استخلاص','form.use.retail':'تجزئة','form.use.other':'أخرى',
+        'form.grades':'الدرجات المفضلة','form.grades.standard':'ستاندرد','form.grades.premium':'بريميوم','form.grades.both':'كلاهما',
+        'form.qty':'الكمية المتوقعة (شهريًا/ربعيًا)','form.msg':'رسالة','form.submit':'إرسال الطلب','form.note':'نرد عادة خلال 24–48 ساعة.',
+        'test.title':'ماذا يقول المشترون',
+        'test.q1':'"ميدي نظيف وحلو مع ثبات ممتاز بين الدفعات."','test.a1':'— مستورد، الاتحاد الأوروبي',
+        'test.q2':'"فيديو التوثيق وأرقام الدُفعات جعلت قسم الجودة مطمئنًا من اليوم الأول."','test.a2':'— علامة عطرية، الولايات المتحدة',
+        'test.q3':'"شحنات في الوقت واتصال صادق جدًا من بربرة."','test.a3':'— موزّع، الشرق الأوسط',
+        'test.q4':'"العينة الذهبية تطابقت تمامًا مع الشحنة. هذا ما نحتاجه."','test.a4':'— دار عطور، فرنسا',
+        'test.q5':'"توريد موثوق ووثائق واضحة. عملية سلسة."','test.a5':'— علامة عافية، المملكة المتحدة',
+        'about.title':'من نحن','about.p':'سومورا للّبان مصدّر عائلي مكرّس للميدي الصومالي الأصيل (Boswellia Frereana). نعمل مباشرة مع جامعين موثوقين ونحافظ على سلسلة شفافة بتوثيق مرئي، وأرقام دفعات، ونموذج العينة الذهبية لضمان الاتساق بين الشحنات. مكتبنا في السويد، والتصدير من الصومال.',
+        'contact.title':'تواصل معنا','contact.name':'سومورا للّبان','contact.where':'مكتب في السويد • التصدير من الصومال','contact.emailLabel':'البريد: ',
+        'footer.made':'صُنع بعناية في الصومال · مكتب في السويد'
+      }
+    };
+
+    function setLang(lang){
+      const html = document.getElementById('htmlEl');
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+      // toggle active button
+      document.querySelectorAll('.lang-switch .lang').forEach(b=>{
+        b.classList.toggle('on', b.dataset.lang === lang);
+      });
+
+      // replace texts
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        const str = i18n[lang][key];
+        if (typeof str === 'string'){
+          // innerHTML to allow <b> in timeline
+          el.innerHTML = str;
+        }
+      });
+    }
+
+    // init + listeners
+    document.querySelectorAll('.lang-switch .lang').forEach(b=>{
+      b.addEventListener('click', ()=> setLang(b.dataset.lang));
+    });
+    setLang('en'); // default
   </script>
 </body>
 </html>
