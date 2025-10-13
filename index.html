@@ -63,25 +63,49 @@
     </nav>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section id="top" class="hero" role="banner" aria-label="Somora Frankincense">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="container hero__inner">
-      <h1 class="i-hero-title">Pure Somali Maydi <span>(Boswellia Frereana)</span></h1>
-      <p class="tagline i-hero-sub">Family-based exporter · Office in Sweden · Export from Somalia (FOB Berbera)</p>
-      <div class="cta">
-        <a class="btn primary shine i-cta-request" href="#request">Request Samples</a>
-        <a class="btn outline i-cta-products" href="#products">View Products</a>
-      </div>
-      <ul class="badges" aria-label="quality">
-        <li class="i-badge-video">Video-verified</li>
-        <li class="i-badge-batch">Batch ID</li>
-        <li class="i-badge-golden">Golden Sample</li>
-        <li class="i-badge-direct">Direct sourcing</li>
-      </ul>
-    </div>
-  </section>
+  <<!-- ===== HERO (video + bildfallback) ===== -->
+<section class="hero" id="top" role="banner" aria-label="Somora Frankincense">
+  <!-- Valfri video. Om du inte har hero.mp4 så visas bilden (poster) direkt. -->
+  <video class="hero-video" autoplay muted loop playsinline poster="hero.jpg">
+    <source src="hero.mp4" type="video/mp4" />
+  </video>
 
+  <!-- Bildfallback om du vill köra utan video helt -->
+  <div class="hero-bg" aria-hidden="true">
+    <img src="hero.jpg" alt="" loading="eager" />
+  </div>
+
+  <!-- Innehåll -->
+  <div class="hero-inner container">
+    <h1 class="hero-title">
+      Pure Somali Maydi
+      <span>(Boswellia Frereana)</span>
+    </h1>
+
+    <p class="hero-tagline">
+      Family-based exporter · Office in Sweden · Export from Somalia (FOB Berbera)
+    </p>
+
+    <div class="hero-cta">
+      <a class="btn primary shine" href="#request">Request Samples</a>
+      <a class="btn outline" href="#products">View Products</a>
+    </div>
+
+    <ul class="hero-badges" aria-label="Key qualities">
+      <li>Video-verified</li>
+      <li>Batch ID</li>
+      <li>Golden Sample</li>
+      <li>Direct Sourcing</li>
+    </ul>
+  </div>
+
+  <!-- Subtil guldglans + vignett läggs med ::before/::after i CSS -->
+
+  <!-- Scroll-cue -->
+  <button class="scroll-cue" aria-label="Scroll to content" onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'})">
+    <span></span>
+  </button>
+</section>
   <main>
 
     <!-- ===== Products ===== -->
