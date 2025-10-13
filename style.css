@@ -1,4 +1,4 @@
-* ========== Theme & base ========== */
+/* ========== Theme & base ========== */
 :root{
   --bg:#f4eadc;        /* beige */
   --ink:#1d1a16;       /* dark text */
@@ -7,8 +7,9 @@
   --radius:14px;
   --max:1200px;
 
-  --hero: url('hero.jpg');
-  --land: url('landscape.jpg');
+  /* Bakgrundsbilder (cache-bust med ?v=4) */
+  --hero: url('hero.jpg?v=4');
+  --land: url('landscape.jpg?v=4');
 }
 
 *{box-sizing:border-box}
@@ -176,12 +177,12 @@ h3{font-size:22px}
 .form .hidden{display:none}
 .form-note{opacity:.8; margin-top:10px}
 
-/* ========== Quotes (carousel) ========== */
-.quotes{position:relative; min-height:130px}
-.quote{position:absolute; inset:0; opacity:0; transform:translateY(8px); transition:.45s}
-.quote.active{opacity:1; transform:none}
-.quote blockquote{margin:0 0 6px 0; font-size:clamp(16px,2.2vw,20px); font-style:italic}
-.quote figcaption{opacity:.75; font-weight:700}
+/* ========== Quotes (carousel) – visa EN åt gången ========== */
+.quotes{position:relative; min-height:160px}
+.quotes .quote{position:absolute; inset:0; opacity:0; transform:none}
+.quotes .quote.active{opacity:1; z-index:1}
+/* överkör reveal ifall den skulle läggas på citaten av misstag */
+.quotes .quote.reveal.in{opacity:0 !important; transform:none !important}
 
 /* ========== Footer ========== */
 .footer{border-top:1px solid var(--line); padding:44px 0; text-align:center; color:#534d43}
@@ -224,7 +225,9 @@ h3{font-size:22px}
 @media (max-width:900px){
   .nav a{display:none}
   .hamburger{display:block; margin-left:auto}
+  /* iOS/Android fix – parallax off på mobil */
   .hero{background-attachment:scroll; min-height:66vh}
+  .parallax{background-attachment:scroll}
 }
 @media (max-width:640px){
   .cards{grid-template-columns:1fr}
