@@ -240,39 +240,58 @@
         <h2 data-i18n="form.title">Request Samples</h2>
         <div class="divider"></div>
 
-        <form name="sample-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" accept-charset="UTF-8" class="form">
-          <input type="hidden" name="form-name" value="sample-request">
-          <input type="hidden" name="Subject" value="Somora Sample Request">
-          <p class="hidden"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
+        <form id="sample-request"
+      action="https://formspree.io/f/mwprwwwn"
+      method="POST"
+      accept-charset="UTF-8">
+  <input type="hidden" name="subject" value="Somora Sample Request">
 
-          <div class="grid">
-            <label data-i18n="form.company">Company<input name="Company" required></label>
-            <label data-i18n="form.contact">Contact person<input name="Contact" required></label>
-            <label data-i18n="form.email">Email<input name="Email" type="email" required></label>
-            <label data-i18n="form.location">Country / City<input name="Location" required></label>
-            <label data-i18n="form.use">Intended use
-              <select name="Use" required>
-                <option value="Incense" data-i18n="form.use.incense">Incense</option>
-                <option value="Extraction" data-i18n="form.use.extraction">Extraction</option>
-                <option value="Retail" data-i18n="form.use.retail">Retail</option>
-                <option value="Other" data-i18n="form.use.other">Other</option>
-              </select>
-            </label>
-            <label data-i18n="form.grades">Preferred grades
-              <select name="Grades" required>
-                <option value="Standard" data-i18n="form.grades.standard">Standard</option>
-                <option value="Premium" data-i18n="form.grades.premium">Premium</option>
-                <option value="Both" data-i18n="form.grades.both">Both</option>
-              </select>
-            </label>
-            <label data-i18n="form.qty">Quantity interest (monthly/quarterly)
-              <input name="Quantity">
-            </label>
-            <label data-i18n="form.msg">Message<textarea name="Message" rows="4"></textarea></label>
-          </div>
-          <button class="btn primary shine" type="submit" data-i18n="form.submit">Send request</button>
-          <p class="form-note" data-i18n="form.note">We usually reply within 24–48 hours.</p>
-        </form>
+  <div class="grid">
+    <label>Company
+      <input name="company" required>
+    </label>
+
+    <label>Contact person
+      <input name="contact" required>
+    </label>
+
+    <label>Email
+      <input type="email" name="email" required>
+    </label>
+
+    <label>Country / City
+      <input name="location" required>
+    </label>
+
+    <label>Intended use
+      <select name="use" required>
+        <option value="Incense">Incense</option>
+        <option value="Extraction">Extraction</option>
+        <option value="Retail">Retail</option>
+        <option value="Other">Other</option>
+      </select>
+    </label>
+
+    <label>Preferred grades
+      <select name="grades" required>
+        <option value="Standard">Standard</option>
+        <option value="Premium">Premium</option>
+        <option value="Both">Both</option>
+      </select>
+    </label>
+
+    <label>Quantity interest (monthly/quarterly)
+      <input name="quantity">
+    </label>
+
+    <label>Message
+      <textarea name="message" rows="4"></textarea>
+    </label>
+  </div>
+
+  <button class="btn primary shine" type="submit">Send request</button>
+  <p class="form-note">We usually reply within 24–48 hours.</p>
+</form>
       </div>
     </section>
 
